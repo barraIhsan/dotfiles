@@ -13,9 +13,6 @@ keymap.del({ "n", "t" }, "<c-/>")
 keymap.del("n", "<leader>fT")
 keymap.del("n", "<leader>ft")
 
--- use ToggleTerm instead
-keymap.set({ "n", "t" }, "<c-_>", "<cmd>ToggleTerm direction=horizontal<cr>")
-
 -- integrate with tmux
 keymap.set({ "n", "t" }, "<c-h>", "<cmd>TmuxNavigateLeft<cr>")
 keymap.set({ "n", "t" }, "<c-l>", "<cmd>TmuxNavigateRight<cr>")

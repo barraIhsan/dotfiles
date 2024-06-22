@@ -47,15 +47,4 @@ return {
       })
     end,
   },
-  {
-    "akinsho/toggleterm.nvim",
-    lazy = true,
-    cmd = { "ToggleTerm" },
-    opts = {
-      shell = '"C:/Program Files/Git/usr/bin/zsh.exe"',
-      open_mapping = [[<c-_>]],
-      insert_mappings = true,
-      terminal_mappings = true,
-    },
-  },
 }
