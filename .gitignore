@@ -1,2 +1,7 @@
-# Lazy Lock file
-lazy-lock.json
+# neovim lazy lock file
+.config/nvim/lazy-lock.json
+
+# mpv memo history
+.config/mpv/memo-history.log
+# mpv watch_later
+.config/mpv/watch_later/
