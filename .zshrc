@@ -41,7 +41,7 @@ alias cat="bat"
 alias lg="lazygit"
 
 # GPG on TTY
-GPG_TTY=$(tty)
+export GPG_TTY=$(tty)
 
 # Initialize Zinit
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
