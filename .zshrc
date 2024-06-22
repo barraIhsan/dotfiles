@@ -40,8 +40,12 @@ alias ll="ls -la"
 alias cat="bat"
 alias lg="lazygit"
 
-# GPG on TTY
+# Environment variables
+# use tty gpg
 export GPG_TTY=$(tty)
+# set default editor as neovim
+export VISUAL=nvim
+export EDITOR=$VISUAL
 
 # Initialize Zinit
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
