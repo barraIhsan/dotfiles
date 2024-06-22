@@ -6,3 +6,5 @@
 	gpgsign = true
 [credential "https://github.com"]
 	username = barraIhsan
+[core]
+	editor = nvim -f
