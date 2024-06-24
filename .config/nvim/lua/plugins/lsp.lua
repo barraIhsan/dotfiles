@@ -40,7 +40,6 @@ return {
       opts.formatting = {
         format = require("tailwindcss-colorizer-cmp").formatter,
       }
-      opts.completion = { autocomplete = false }
     end,
   },
 }
