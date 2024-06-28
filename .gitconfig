@@ -8,3 +8,5 @@
 	username = barraIhsan
 [core]
 	editor = nvim -f
+[init]
+	defaultBranch = master
