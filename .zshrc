@@ -33,6 +33,7 @@ pfetch
 
 # Aliases
 alias c="clear"
+alias y="yazi"
 alias vim="nvim"
 alias v="nvim"
 alias ls="eza --group-directories-first --icons=auto --git -h"
