@@ -2,8 +2,13 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-$directory $fill $all$character
+$directory $fill $status $all$character
 """
 
 [fill]
 symbol = " "
+
+[status]
+style = "bold red"
+format = "[$status]($style)"
+disabled = false
