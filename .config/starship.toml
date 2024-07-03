@@ -4,10 +4,15 @@
 format = """
 $directory $fill $status $all$character
 """
+# Prompt
+# left: directory (cwd)
+# right: exitcode & all module
 
+# Seperate left and right
 [fill]
 symbol = " "
 
+# Exit Code in bold red
 [status]
 style = "bold red"
 format = "[$status]($style)"
