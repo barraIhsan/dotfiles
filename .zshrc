@@ -27,9 +27,8 @@ eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(fzf --zsh)"
 
-# Startup Program
-date
-pfetch
+# Run fastfetch
+fastfetch
 
 # Aliases
 alias c="clear"
