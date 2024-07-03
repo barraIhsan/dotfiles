@@ -33,13 +33,22 @@ pfetch
 
 # Aliases
 alias c="clear"
-alias y="yazi"
 alias vim="nvim"
 alias v="nvim"
 alias ls="eza --group-directories-first --icons=auto --git -h"
 alias ll="ls -la"
 alias cat="bat"
 alias lg="lazygit"
+
+# Yazi yy shell wrapper
+function yy() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    cd "$cwd"
+  fi
+  rm -f -- "$tmp"
+}
 
 # Environment variables
 # use tty gpg
