@@ -1,12 +1,10 @@
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
-format = """
-$directory $fill $status $all$character
-"""
 # Prompt
 # left: directory (cwd)
 # right: exitcode & all module
+format = "$directory $fill $status $all$character"
 
 # Seperate left and right
 [fill]
