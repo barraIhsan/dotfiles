@@ -76,6 +76,7 @@ zinit light Aloxaf/fzf-tab
 zinit snippet OMZP::git
 zinit snippet OMZP::command-not-found
 zinit snippet OMZP::sudo
+zinit snippet OMZP::colored-man-pages
 
 zinit cdreplay -q
 
