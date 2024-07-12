@@ -13,8 +13,8 @@ keymap.del({ "n", "t" }, "<c-/>")
 keymap.del("n", "<leader>fT")
 keymap.del("n", "<leader>ft")
 
--- kitty
-keymap.set("n", "<c-j>", ":KittyNavigateDown <CR>")
-keymap.set("n", "<c-k>", ":KittyNavigateUp <CR>")
-keymap.set("n", "<c-l>", ":KittyNavigateRight <CR>")
-keymap.set("n", "<c-h>", ":KittyNavigateLeft <CR>")
+-- integrate with tmux
+keymap.set({ "n", "t" }, "<c-h>", "<cmd>TmuxNavigateLeft<cr>")
+keymap.set({ "n", "t" }, "<c-l>", "<cmd>TmuxNavigateRight<cr>")
+keymap.set({ "n", "t" }, "<c-j>", "<cmd>TmuxNavigateDown<cr>")
+keymap.set({ "n", "t" }, "<c-k>", "<cmd>TmuxNavigateUp<cr>")
