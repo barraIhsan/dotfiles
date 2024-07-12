@@ -56,6 +56,9 @@ export GPG_TTY=$(tty)
 export VISUAL=nvim
 export EDITOR=$VISUAL
 
+# Start ssh-agent (if it's not started yet), and remove any output
+[ -z "$SSH_AUTH_SOCK" ] && eval "$(ssh-agent -s | grep -v '^echo')"
+
 # Initialize Zinit
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
