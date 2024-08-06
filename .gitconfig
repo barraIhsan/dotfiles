@@ -1,7 +1,7 @@
 [user]
 	email = 57800056+barraIhsan@users.noreply.github.com
 	name = barraIhsan
-	signingkey = E42BB21A4CB03071
+	signingkey = FF7D51EFEC75A00B
 [commit]
 	gpgsign = true
 [credential "https://github.com"]
