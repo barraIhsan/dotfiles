@@ -27,6 +27,9 @@ eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(fzf --zsh)"
 
+# Source nvm
+source /usr/share/nvm/init-nvm.sh
+
 # Run fastfetch
 fastfetch
 
