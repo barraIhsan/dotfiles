@@ -1,0 +1,7 @@
+{
+    "diagnostics.disable": [
+        "assign-type-mismatch",
+        "missing-fields",
+        "unused-local"
+    ]
+}
