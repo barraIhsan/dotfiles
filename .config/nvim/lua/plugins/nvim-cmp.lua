@@ -4,6 +4,7 @@ return {
 	dependencies = {
 		"hrsh7th/cmp-buffer", -- source text within current buffer
 		"hrsh7th/cmp-path", -- source file system paths
+		"hrsh7th/cmp-emoji", -- unicode emoji
 
 		-- snippets
 		{
@@ -59,6 +60,7 @@ return {
 				{ name = "nvim_lsp" }, -- lsp
 				{ name = "buffer" }, -- text within current buffer
 				{ name = "path" }, -- file system paths
+				{ name = "emoji" }, -- unicode emoji
 			}),
 			-- configure lspkind for vscode-like pictograms in completion menu
 			formatting = {

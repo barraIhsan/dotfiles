@@ -5,11 +5,6 @@ return {
 		event = "VeryLazy",
 		opts = {},
 	},
-	-- unicode emoji, symbols, and NF icons picker
-	{
-		"ziontee113/icon-picker.nvim",
-		opts = {},
-	},
 	-- render images using kitty or ueberzug
 	{
 		"3rd/image.nvim",
