@@ -22,7 +22,9 @@ return {
 		local luasnip = require("luasnip")
 
 		-- load vscode-style snippets
-		require("luasnip.loaders.from_vscode").lazy_load()
+		require("luasnip.loaders.from_vscode").lazy_load({
+			exclude = { "html" },
+		})
 
 		cmp.setup({
 			completion = {
