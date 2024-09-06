@@ -33,13 +33,12 @@ return {
 	},
 	-- preview markdown
 	{
-		"OXY2DEV/markview.nvim",
-		lazy = false,
-		ft = "markdown",
+		"MeanderingProgrammer/render-markdown.nvim",
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
 			"nvim-tree/nvim-web-devicons",
 		},
+		opts = {},
 	},
 	-- discord rpc
 	{
