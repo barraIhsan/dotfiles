@@ -80,6 +80,9 @@ return {
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
 
+		-- enable inlay hint
+		vim.lsp.inlay_hint.enable(true, { 0 })
+
 		local lspconfig = require("lspconfig")
 		require("mason-lspconfig").setup_handlers({
 			-- default handler for installed server
