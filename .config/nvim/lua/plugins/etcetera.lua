@@ -31,14 +31,24 @@ return {
 			lang = "javascript",
 		},
 	},
-	-- preview markdown
+	-- preview markdown on buffer
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
 			"nvim-tree/nvim-web-devicons",
 		},
+		ft = "markdown",
 		opts = {},
+	},
+	-- preview markdown on browser
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		ft = "markdown",
+		build = function()
+			vim.fn["mkdp#util#install"]()
+		end,
 	},
 	-- discord rpc
 	{
