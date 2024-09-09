@@ -83,6 +83,9 @@ return {
 		-- enable inlay hint
 		vim.lsp.inlay_hint.enable(true, { 0 })
 
+		-- enable borders
+		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+
 		local lspconfig = require("lspconfig")
 		require("mason-lspconfig").setup_handlers({
 			-- default handler for installed server
