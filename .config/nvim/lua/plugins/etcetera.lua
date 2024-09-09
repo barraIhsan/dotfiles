@@ -23,6 +23,19 @@ return {
 			},
 		},
 	},
+	-- lsp signature help
+	{
+		"ray-x/lsp_signature.nvim",
+		event = "VeryLazy",
+		opts = {
+			floating_window = false,
+			hint_prefix = {
+				above = "↙ ", -- when the hint is on the line above the current line
+				current = "← ", -- when the hint is on the same line
+				below = "↖ ", -- when the hint is on the line below the current line
+			},
+		},
+	},
 	-- render images using kitty or ueberzug
 	{
 		"3rd/image.nvim",
