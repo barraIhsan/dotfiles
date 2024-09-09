@@ -67,6 +67,7 @@ return {
 				{ name = "buffer" }, -- text within current buffer
 				{ name = "path" }, -- file system paths
 				{ name = "emoji" }, -- unicode emoji
+				{ name = "crates" }, -- rust crates
 			}),
 			-- configure lspkind for vscode-like pictograms in completion menu
 			formatting = {

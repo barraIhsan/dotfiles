@@ -5,6 +5,24 @@ return {
 		event = "VeryLazy",
 		opts = {},
 	},
+	-- rust goodies
+	{
+		"mrcjkb/rustaceanvim",
+		version = "^5",
+		lazy = false,
+	},
+	-- manage rust crates
+	{
+		"saecki/crates.nvim",
+		ft = "toml",
+		opts = {
+			completion = {
+				cmp = {
+					enabled = true,
+				},
+			},
+		},
+	},
 	-- render images using kitty or ueberzug
 	{
 		"3rd/image.nvim",
