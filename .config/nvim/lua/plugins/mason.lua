@@ -27,7 +27,6 @@ return {
 				"lua_ls",
 				"graphql",
 				"emmet_language_server",
-				"rust_analyzer",
 				"pyright",
 			},
 		})
