@@ -24,7 +24,7 @@ return {
 		{
 			"<leader>xl",
 			"<cmd>Trouble loclist toggle<CR>",
-			desc = "Open trouble location s",
+			desc = "Open trouble locations",
 		},
 		{
 			"<leader>xt",
