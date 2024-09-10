@@ -26,3 +26,8 @@ keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
 -- reselect again in visual mode when indenting
 keymap.set("v", ">", ">gv", { desc = "Indent/Shift higlighted lines rightwards" })
 keymap.set("v", "<", "<gv", { desc = "Unindent/Shift higlighted lines leftwards" })
+
+-- toggle inline diagnostics (virtual text)
+keymap.set("n", "<leader>xx", function()
+	vim.diagnostic.config({ virtual_text = not vim.diagnostic.config().virtual_text })
+end, { desc = "Toggle inline diagnostics (virtual text)" })
