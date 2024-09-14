@@ -7,8 +7,6 @@ return {
 				lua = { "stylua" },
 				rust = { "rustfmt" },
 				python = { "isort", "black" },
-				html = { "prettierd" },
-				astro = { "prettierd" },
 				javascript = { "prettierd" },
 				typescript = { "prettierd" },
 				javascriptreact = { "prettierd" },
@@ -19,6 +17,10 @@ return {
 				graphql = { "prettierd" },
 				json = { "jq" },
 				yaml = { "yq" },
+				-- just in case it's get assigned to a default value
+				-- disable any formatters on html and astro file
+				html = {},
+				astro = {},
 			},
 			format_on_save = {
 				timeout_ms = 500,
