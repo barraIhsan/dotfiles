@@ -29,5 +29,5 @@ keymap.set("v", "<", "<gv", { desc = "Unindent/Shift higlighted lines leftwards"
 
 -- toggle inline diagnostics (virtual text)
 keymap.set("n", "<leader>xx", function()
-	vim.diagnostic.config({ virtual_text = not vim.diagnostic.config().virtual_text })
+  vim.diagnostic.config({ virtual_text = not vim.diagnostic.config().virtual_text })
 end, { desc = "Toggle inline diagnostics (virtual text)" })
