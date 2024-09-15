@@ -126,6 +126,19 @@ return {
 					},
 				})
 			end,
+			["cssls"] = function()
+				-- configure css langauge server (and ignore unknownAtRules)
+				lspconfig["cssls"].setup({
+					capabilities = capabilities,
+					settings = {
+						css = {
+							lint = {
+								unknownAtRules = "ignore",
+							},
+						},
+					},
+				})
+			end,
 			["lua_ls"] = function()
 				-- configure lua server (with special settings)
 				lspconfig["lua_ls"].setup({
