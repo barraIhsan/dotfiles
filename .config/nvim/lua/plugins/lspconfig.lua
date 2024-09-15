@@ -124,6 +124,13 @@ return {
             "html",
             "astro",
           },
+          settings = {
+            html = {
+              format = {
+                wrapLineLength = 0,
+              },
+            },
+          },
         })
       end,
       ["cssls"] = function()
