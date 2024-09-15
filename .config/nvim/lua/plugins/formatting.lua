@@ -17,10 +17,9 @@ return {
         graphql = { "prettierd" },
         json = { "jq" },
         yaml = { "yq" },
-        -- just in case it's get assigned to a default value
-        -- disable any formatters on html and astro file
-        html = {},
-        astro = {},
+        -- use lsp's formatting for html and astro
+        html = { lsp_format = "prefer" },
+        astro = { lsp_format = "prefer" },
       },
       format_on_save = {
         timeout_ms = 500,
