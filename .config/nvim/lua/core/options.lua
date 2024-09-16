@@ -41,7 +41,7 @@ opt.splitright = true
 opt.splitbelow = true
 
 -- minimal lines to keep above and below the cursor.
-opt.scrolloff = 10
+opt.scrolloff = 5
 
 -- fold (ufo)
 opt.foldcolumn = "0"
