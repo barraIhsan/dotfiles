@@ -28,6 +28,7 @@ return {
         "graphql",
         "emmet_language_server",
         "pyright",
+        "bashls",
       },
     })
 
@@ -39,6 +40,7 @@ return {
         "isort", -- python formatter
         "black", -- python formatter
         "pylint", -- python linter
+        "shfmt", -- sh formatter with bash support
       },
     })
   end,

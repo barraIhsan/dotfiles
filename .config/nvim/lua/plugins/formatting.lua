@@ -17,6 +17,7 @@ return {
         graphql = { "prettierd" },
         json = { "jq" },
         yaml = { "yq" },
+        sh = { "shfmt" },
         -- use lsp's formatting for html and astro
         html = { lsp_format = "prefer" },
         astro = { lsp_format = "prefer" },
