@@ -23,14 +23,6 @@ return {
         -- icons
         icons = {
           glyphs = {
-            default = "󰈚",
-            folder = {
-              default = "",
-              empty = "",
-              empty_open = "",
-              open = "",
-              symlink = "",
-            },
             git = { ignored = "" },
           },
         },
