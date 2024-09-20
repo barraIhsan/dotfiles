@@ -19,6 +19,7 @@ return {
         },
         -- show only the directory name
         root_folder_label = ":t",
+        highlight_git = "name",
         -- icons
         icons = {
           glyphs = {
@@ -30,7 +31,7 @@ return {
               open = "",
               symlink = "",
             },
-            git = { unmerged = "" },
+            git = { ignored = "" },
           },
         },
       },
