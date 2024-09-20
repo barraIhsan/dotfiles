@@ -11,6 +11,17 @@ return {
     require("telescope").setup({
       defaults = {
         path_display = { "smart" },
+        file_ignore_patterns = {
+          -- ignore file that usually aren't on .gitignore
+          ".git/",
+          "yarn.lock",
+          "package-lock.json",
+        },
+      },
+      pickers = {
+        find_files = {
+          hidden = true,
+        },
       },
     })
 
