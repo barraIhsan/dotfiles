@@ -30,7 +30,7 @@ return {
           { "filename", path = 1 },
         },
         lualine_x = { encoding, fileformat },
-        lualine_y = { "progress" },
+        lualine_y = {},
         lualine_z = { "location" },
       },
       inactive_sections = {
