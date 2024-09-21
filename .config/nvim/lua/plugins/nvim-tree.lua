@@ -19,11 +19,18 @@ return {
         },
         -- show only the directory name
         root_folder_label = ":t",
+        -- highlight the file name according to their git status
         highlight_git = "name",
         -- icons
         icons = {
+          -- place git icons far right
+          git_placement = "right_align",
           glyphs = {
-            git = { ignored = "" },
+            git = {
+              unstaged = "+",
+              deleted = "-",
+              ignored = "",
+            },
           },
         },
       },
