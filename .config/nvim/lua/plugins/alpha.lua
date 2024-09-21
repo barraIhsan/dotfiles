@@ -28,6 +28,12 @@ return {
       dashboard.button("q", "󰅙  Quit Neovim", "<cmd>qa<CR>"),
     }
 
+    dashboard.section.footer.val = {
+      "",
+      "   CWD: " .. vim.fn.getcwd():gsub("^" .. vim.fn.expand("$HOME"), "~"),
+      "",
+    }
+
     -- Send config to alpha
     alpha.setup(dashboard.opts)
 
