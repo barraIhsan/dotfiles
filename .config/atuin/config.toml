@@ -1,0 +1,6 @@
+# always insert command
+enter_accept = false
+
+# compact mode
+style = "compact"
+inline_height = 20

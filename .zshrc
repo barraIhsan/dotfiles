@@ -26,6 +26,7 @@ autoload -Uz compinit && compinit
 eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(fzf --zsh)"
+eval "$(atuin init zsh)"
 
 # Source nvm
 source /usr/share/nvm/init-nvm.sh
