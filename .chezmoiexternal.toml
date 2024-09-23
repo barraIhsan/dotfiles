@@ -1,9 +1,4 @@
-# uosc
-[".config/mpv"]
-  type = "archive"
-  url = "https://github.com/tomasklaen/uosc/releases/latest/download/uosc.zip"
-  refreshPeriod = "168h"
-
+## mpv shaders
 # anime4k shaders
 {{ $anime4kOs := "Windows" }}
 {{ if eq .chezmoi.os "darwin" }}
@@ -29,8 +24,47 @@
   refreshPeriod = "168h"
 
 ## mpv scripts
-# mpv_sponsorblock
+# uosc, feature-rich osc/ui
+[".config/mpv"]
+  type = "archive"
+  url = "https://github.com/tomasklaen/uosc/releases/latest/download/uosc.zip"
+  refreshPeriod = "168h"
+# sponsorblock
 [".config/mpv/scripts/sponsorblock_minimal.lua"]
   type = "file"
-  url = "https://codeberg.org/jouni/mpv_sponsorblock_minimal/raw/branch/master/sponsorblock_minimal.lua"
+  url = "https://codeberg.org/jouni/mpv_sponsorblock_minimal/raw/master/sponsorblock_minimal.lua"
+  refreshPeriod = "168h"
+# ani-skip, skip anime opening and ending
+[".config/mpv/scripts/ani-skip.lua"]
+  type = "file"
+  url = "https://raw.githubusercontent.com/synacktraa/ani-skip/master/skip.lua"
+  refreshPeriod = "168h"
+# manage bookmarks
+[".config/mpv/scripts/bookmarker-menu.lua"]
+  type = "file"
+  url = "https://raw.githubusercontent.com/NurioHin/mpv-bookmarker/master/bookmarker-menu.lua"
+  refreshPeriod = "168h"
+# image crop
+[".config/mpv/scripts/crop.lua"]
+  type = "file"
+  url = "https://github.com/TheAMM/mpv_crop_script/releases/latest/download/mpv_crop_script.lua"
+# videoclip
+[".config/mpv/scripts/videoclip"]
+  type = "git-repo"
+  url = "https://github.com/Ajatt-Tools/videoclip.git"
+  refreshPeriod = "168h"
+# seek to a specific timestamp
+[".config/mpv/scripts/seek-to.lua"]
+  type = "file"
+  url = "https://raw.githubusercontent.com/occivink/mpv-scripts/master/scripts/seek-to.lua"
+  refreshPeriod = "168h"
+# image thumbnail
+[".config/mpv/scripts/thumbfast.lua"]
+  type = "file"
+  url = "https://raw.githubusercontent.com/po5/thumbfast/master/thumbfast.lua"
+  refreshPeriod = "168h"
+# audio visualizer
+[".config/mpv/scripts/visualizer.lua"]
+  type = "file"
+  url = "https://raw.githubusercontent.com/mfcc64/mpv-scripts/master/visualizer.lua"
   refreshPeriod = "168h"
