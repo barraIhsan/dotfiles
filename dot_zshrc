@@ -87,3 +87,4 @@ zinit snippet OMZP::colored-man-pages
 
 zinit cdreplay -q
 
+# vim: filetype=sh syntax=sh

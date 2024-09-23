@@ -12,3 +12,5 @@
 	defaultBranch = master
 [push]
 	autoSetupRemote = true
+
+# vim: filetype=gitconfig syntax=gitconfig
