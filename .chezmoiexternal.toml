@@ -1,0 +1,4 @@
+[".config/mpv"]
+  type = "archive"
+  url = "https://github.com/tomasklaen/uosc/releases/latest/download/uosc.zip"
+  refreshPeriod = "168h"
