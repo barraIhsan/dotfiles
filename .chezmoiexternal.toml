@@ -27,3 +27,10 @@
   type = "file"
   url = "https://gist.githubusercontent.com/agyild/82219c545228d70c5604f865ce0b0ce5/raw/FSR.glsl"
   refreshPeriod = "168h"
+
+## mpv scripts
+# mpv_sponsorblock
+[".config/mpv/scripts/sponsorblock_minimal.lua"]
+  type = "file"
+  url = "https://codeberg.org/jouni/mpv_sponsorblock_minimal/raw/branch/master/sponsorblock_minimal.lua"
+  refreshPeriod = "168h"
