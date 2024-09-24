@@ -4,10 +4,12 @@ return {
   build = ":TSUpdate",
   dependencies = { "windwp/nvim-ts-autotag" },
   config = function()
+    -- auto close and auto rename html tags
+    require("nvim-ts-autotag").setup({})
+    -- treesitter
     require("nvim-treesitter.configs").setup({
       highlight = { enable = true },
       indent = { enable = true },
-      autotag = { enable = true },
       ensure_installed = {
         "json",
         "javascript",
