@@ -6,5 +6,3 @@ lazy-lock.json
 
 # lua rc
 .luarc.json
-
-# vim: filetype=gitignore syntax=gitignore
