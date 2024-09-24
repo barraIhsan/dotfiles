@@ -2,7 +2,7 @@ return {
   "nvim-treesitter/nvim-treesitter",
   event = { "BufReadPre", "BufNewFile" },
   build = ":TSUpdate",
-  dependencies = { "windwp/nvim-ts-autotag" },
+  dependencies = { "nvim-treesitter/nvim-treesitter-textobjects", "windwp/nvim-ts-autotag" },
   config = function()
     -- auto close and auto rename html tags
     require("nvim-ts-autotag").setup({})
