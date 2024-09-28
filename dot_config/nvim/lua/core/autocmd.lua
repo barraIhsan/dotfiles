@@ -11,6 +11,6 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   desc = "Apply chezmoi changes after saving any file in the ~/.local/share/chezmoi directory",
   pattern = vim.fn.expand("~") .. "/.local/share/chezmoi/*",
   callback = function()
-    vim.fn.system("chezmoi apply --source-path " .. vim.fn.expand("%"))
+    vim.fn.system("chezmoi apply --force --source-path " .. vim.fn.expand("%"))
   end,
 })
