@@ -31,6 +31,10 @@ eval "$(atuin init zsh)"
 # Source nvm
 source /usr/share/nvm/init-nvm.sh
 
+# Add directory to PATH env
+path+=~/.yarn/bin
+path+=~/.cargo/bin
+
 # Run fastfetch
 fastfetch
 
