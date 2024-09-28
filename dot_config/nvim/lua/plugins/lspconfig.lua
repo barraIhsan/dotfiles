@@ -72,6 +72,8 @@ return {
 
     -- used to enable autocompletion (assign to every lsp server config)
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    -- enable snippet
+    capabilities.textDocument.completion.completionItem.snippetSupport = true
 
     -- change diagnostic symbols in the sign column (gutter)
     local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
