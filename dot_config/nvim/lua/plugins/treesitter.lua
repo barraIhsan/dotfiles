@@ -9,6 +9,7 @@ return {
     -- treesitter
     require("nvim-treesitter.configs").setup({
       highlight = { enable = true },
+      auto_install = true,
       ensure_installed = {
         "json",
         "javascript",
@@ -29,6 +30,7 @@ return {
         "query",
         "vimdoc",
         "c",
+        "rust",
       },
       incremental_selection = {
         enable = true,
