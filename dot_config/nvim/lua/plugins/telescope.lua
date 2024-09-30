@@ -12,8 +12,8 @@ return {
       defaults = {
         path_display = { "smart" },
         file_ignore_patterns = {
-          -- ignore file that usually aren't on .gitignore
           ".git/",
+          "node_modules/",
           "yarn.lock",
           "package-lock.json",
         },
