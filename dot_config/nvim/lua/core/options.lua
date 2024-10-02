@@ -1,4 +1,5 @@
 local opt = vim.opt
+local g = vim.g
 
 -- turn on relative line number
 opt.number = true
@@ -48,3 +49,6 @@ opt.foldcolumn = "0"
 opt.foldlevel = 99
 opt.foldlevelstart = 99
 opt.foldenable = true
+
+-- disable default markdown "recommended" style (tab -> 4 space)
+g.markdown_recommended_style = 0
