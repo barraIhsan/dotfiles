@@ -5,6 +5,12 @@ return {
     event = "VeryLazy",
     opts = {},
   },
+  -- visualize merge conflict marker
+  {
+    "akinsho/git-conflict.nvim",
+    version = "*",
+    opts = {},
+  },
   -- rust goodies
   {
     "mrcjkb/rustaceanvim",
