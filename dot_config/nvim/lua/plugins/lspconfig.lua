@@ -6,6 +6,7 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     { "antosha417/nvim-lsp-file-operations", config = true },
     { "folke/lazydev.nvim", ft = "lua", opts = {} },
+    "b0o/schemastore.nvim",
   },
   config = function()
     local keymap = vim.keymap
@@ -145,6 +146,18 @@ return {
               lint = {
                 unknownAtRules = "ignore",
               },
+            },
+          },
+        })
+      end,
+      ["jsonls"] = function()
+        -- configure json language server (schemastore)
+        lspconfig["jsonls"].setup({
+          capabilities = capabilities,
+          settings = {
+            json = {
+              schemas = require("schemastore").json.schemas(),
+              validate = { enable = true },
             },
           },
         })
