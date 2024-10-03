@@ -15,6 +15,7 @@ return {
           ".git/",
           "node_modules/",
           "yarn.lock",
+          "pnpm-lock.yaml",
           "package-lock.json",
         },
       },
