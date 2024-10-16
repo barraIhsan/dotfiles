@@ -29,6 +29,7 @@ return {
         "emmet_language_server",
         "pyright",
         "bashls",
+        "mdx_analyzer",
       },
     })
 

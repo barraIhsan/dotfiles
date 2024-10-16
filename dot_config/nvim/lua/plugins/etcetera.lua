@@ -76,7 +76,7 @@ return {
       "nvim-treesitter/nvim-treesitter",
       "nvim-tree/nvim-web-devicons",
     },
-    ft = "markdown",
+    ft = { "markdown", "mdx" },
     opts = {},
   },
   -- preview markdown on browser
@@ -88,6 +88,13 @@ return {
       require("lazy").load({ plugins = { "markdown-preview.nvim" } })
       vim.fn["mkdp#util#install"]()
     end,
+  },
+  },
+  -- mdx support
+  {
+    "davidmh/mdx.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    opts = {},
   },
   -- discord rpc
   {
