@@ -30,6 +30,12 @@ return {
       },
     },
   },
+  -- latex
+  {
+    "lervag/vimtex",
+    lazy = false,
+    ft = "tex",
+  },
   -- lsp signature help
   {
     "ray-x/lsp_signature.nvim",

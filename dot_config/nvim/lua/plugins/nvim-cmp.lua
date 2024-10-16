@@ -16,6 +16,7 @@ return {
     "rafamadriz/friendly-snippets", -- useful snippets
     "onsails/lspkind.nvim", -- vs-code like pictograms
     "luckasRanarison/tailwind-tools.nvim", -- tailwind
+    "micangl/cmp-vimtex", -- tex
   },
   config = function()
     local cmp = require("cmp")
@@ -64,10 +65,11 @@ return {
       sources = cmp.config.sources({
         { name = "luasnip" }, -- snippets
         { name = "nvim_lsp" }, -- lsp
+        { name = "vimtex" }, -- tex
+        { name = "crates" }, -- rust crates
         { name = "buffer" }, -- text within current buffer
         { name = "path" }, -- file system paths
         { name = "emoji" }, -- unicode emoji
-        { name = "crates" }, -- rust crates
       }),
       -- configure lspkind for vscode-like pictograms in completion menu
       formatting = {
