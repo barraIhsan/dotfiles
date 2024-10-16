@@ -63,8 +63,8 @@ return {
       }),
       -- sources for autocompletion
       sources = cmp.config.sources({
-        { name = "luasnip" }, -- snippets
         { name = "nvim_lsp" }, -- lsp
+        { name = "luasnip" }, -- snippets
         { name = "vimtex" }, -- tex
         { name = "crates" }, -- rust crates
         { name = "buffer" }, -- text within current buffer
