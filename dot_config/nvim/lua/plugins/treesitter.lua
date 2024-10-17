@@ -17,6 +17,7 @@ return {
         "tsx",
         "yaml",
         "html",
+        "astro",
         "css",
         "markdown",
         "markdown_inline",
