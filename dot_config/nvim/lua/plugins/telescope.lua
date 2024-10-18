@@ -15,8 +15,8 @@ return {
           ".git/",
           "node_modules/",
           "yarn.lock",
-          "pnpm-lock.yaml",
-          "package-lock.json",
+          "pnpm%-lock.yaml",
+          "package%-lock.json",
         },
       },
       pickers = {
