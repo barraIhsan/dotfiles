@@ -31,21 +31,21 @@ return {
     -- ho to open harpoon list normally (reorder & delete marks)
     vim.keymap.set("n", "<leader>ho", function()
       harpoon.ui:toggle_quick_menu(harpoon:list())
-    end)
+    end, { desc = "Open harpoon window" })
     -- hh to open harpoon list with telescope
     vim.keymap.set("n", "<leader>hh", function()
       toggle_telescope(harpoon:list())
-    end, { desc = "Open harpoon window" })
+    end, { desc = "Open harpoon window in Telescope" })
     -- ha to add file into harpoon list
     vim.keymap.set("n", "<leader>ha", function()
       harpoon:list():add()
-    end)
+    end, { desc = "Add current file to harpoon list" })
     -- ctrl alt h and l to navigate next and prev
     vim.keymap.set("n", "<C-A-h>", function()
       harpoon:list():prev()
-    end)
+    end, { desc = "Navigate to previous file in harpoon list" })
     vim.keymap.set("n", "<C-A-l>", function()
       harpoon:list():next()
-    end)
+    end, { desc = "Navigate to next file in harpoon list" })
   end,
 }
