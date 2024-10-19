@@ -12,6 +12,7 @@ return {
       { "<leader>f", group = "Find (telescope)" },
       { "<leader>w", group = "Workspace session" },
       { "<leader>x", group = "Trouble" },
+      { "<leader>h", group = "Hunk (gitsigns) & Harpoon" },
     })
   end,
 }
