@@ -14,3 +14,12 @@ vim.api.nvim_create_autocmd("BufWritePost", {
     vim.fn.system("chezmoi apply --force --source-path " .. vim.fn.expand("%"))
   end,
 })
+
+-- add hyphen (-) to `isKeyword` on html, and react
+-- for css class especially tailwind
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "html", "javascriptreact", "typescriptreact" },
+  callback = function()
+    vim.opt_local.iskeyword:append("-")
+  end,
+})
