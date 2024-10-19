@@ -14,9 +14,9 @@ return {
         file_ignore_patterns = {
           ".git/",
           "node_modules/",
-          "yarn.lock",
-          "pnpm%-lock.yaml",
-          "package%-lock.json",
+          "yarn%.lock",
+          "pnpm%-lock%.yaml",
+          "package%-lock%.json",
         },
       },
       pickers = {
