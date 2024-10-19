@@ -39,9 +39,8 @@ return {
     keymap.set("n", "<leader>fw", builtin.grep_string, { desc = "Find current word" })
     keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Find by grep" })
     keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Find diagnostics" })
-    keymap.set("n", "<leader>fr", builtin.resume, { desc = "Find resume" })
     keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<CR>", { desc = "Find todos" })
-    keymap.set("n", "<leader>f.", builtin.oldfiles, { desc = "Find recent files" })
+    keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "Find recent files" })
     keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "Find existing buffers" })
   end,
 }
