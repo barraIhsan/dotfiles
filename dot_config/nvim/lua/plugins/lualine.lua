@@ -1,6 +1,9 @@
 return {
   "nvim-lualine/lualine.nvim",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",
+    { "letieu/harpoon-lualine", dependencies = { "ThePrimeagen/harpoon", branch = "harpoon2" } },
+  },
   config = function()
     -- Override 'encoding': Don't display if encoding is UTF-8.
     local function encoding()
@@ -30,7 +33,7 @@ return {
           { "filename", path = 1 },
         },
         lualine_x = { encoding, fileformat },
-        lualine_y = {},
+        lualine_y = { "harpoon2" },
         lualine_z = { "location" },
       },
       inactive_sections = {
