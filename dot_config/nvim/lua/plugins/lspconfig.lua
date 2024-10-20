@@ -124,10 +124,6 @@ return {
         -- configure html language server
         lspconfig["html"].setup({
           capabilities = capabilities,
-          filetypes = {
-            "html",
-            "astro",
-          },
           settings = {
             html = {
               format = {
