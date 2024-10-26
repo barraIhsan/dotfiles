@@ -22,10 +22,18 @@ return {
     local cmp = require("cmp")
     local luasnip = require("luasnip")
 
+    luasnip.config.set_config({
+      -- enable autosnippets
+      enable_autosnippets = true,
+    })
+
     -- load vscode-style snippets
     require("luasnip.loaders.from_vscode").lazy_load({
       exclude = { "html" },
     })
+
+    -- load custom snippets
+    require("luasnip.loaders.from_lua").lazy_load({ paths = { "./lua/luasnip/" } })
 
     cmp.setup({
       completion = {
