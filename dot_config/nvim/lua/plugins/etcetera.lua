@@ -49,11 +49,6 @@ return {
       },
     },
   },
-  -- render images using kitty or ueberzug
-  {
-    "3rd/image.nvim",
-    config = true,
-  },
   -- render indent line
   {
     "lukas-reineke/indent-blankline.nvim",
