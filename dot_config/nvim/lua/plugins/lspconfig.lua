@@ -88,7 +88,9 @@ return {
 
     -- enable borders
     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
-    vim.diagnostic.config({ float = { border = "rounded" } })
+    vim.diagnostic.config({
+      float = { border = "rounded", prefix = "", header = "", severity_sort = true, source = true },
+    })
 
     local lspconfig = require("lspconfig")
     require("mason-lspconfig").setup_handlers({
