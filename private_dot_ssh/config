@@ -1,5 +1,8 @@
 AddKeysToAgent yes
 
+Host *
+  IdentityFile ~/.ssh/personal
+
 Host aur.archlinux.org
   IdentityFile ~/.ssh/aur
   User aur

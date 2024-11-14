@@ -1,2 +1,8 @@
 LICENSE
 README.md
+
+# ignore ~/.ssh if it's not my computer
+# because why would you?
+{{ if not (eq .chezmoi.username "barra") -}}
+.ssh/
+{{ end }}
