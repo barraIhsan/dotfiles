@@ -1,11 +1,11 @@
+{{ if eq .chezmoi.username "barra" -}}
 [user]
 	email = 57800056+barraIhsan@users.noreply.github.com
 	name = barraIhsan
 	signingkey = FF7D51EFEC75A00B
+{{- end }}
 [commit]
 	gpgsign = true
-[credential "https://github.com"]
-	username = barraIhsan
 [core]
 	editor = nvim -f
 [init]
