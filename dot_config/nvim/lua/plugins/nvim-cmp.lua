@@ -66,7 +66,7 @@ return {
           else
             fallback()
           end
-        end, { "i", "s" }),
+        end, { "i", "n", "s" }),
 
         ["<S-Tab>"] = cmp.mapping(function(fallback)
           if luasnip.locally_jumpable(-1) then
@@ -74,7 +74,7 @@ return {
           else
             fallback()
           end
-        end, { "i", "s" }),
+        end, { "i", "n", "s" }),
       }),
       -- sources for autocompletion
       sources = cmp.config.sources({
