@@ -10,7 +10,6 @@ return {
   config = function()
     require("telescope").setup({
       defaults = {
-        path_display = { "smart" },
         file_ignore_patterns = {
           ".git/",
           "node_modules/",
@@ -18,6 +17,9 @@ return {
           "pnpm%-lock%.yaml",
           "package%-lock%.json",
         },
+        prompt_prefix = "   ",
+        selection_caret = " ",
+        entry_prefix = " ",
       },
       pickers = {
         find_files = {
