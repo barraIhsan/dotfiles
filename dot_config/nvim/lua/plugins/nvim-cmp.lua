@@ -35,6 +35,13 @@ return {
     -- load custom snippets
     require("luasnip.loaders.from_lua").lazy_load({ paths = { "./lua/luasnip/" } })
 
+    -- use rounded box for tailwind colors
+    require("tailwind-tools").setup({
+      document_color = {
+        inline_symbol = " ",
+      },
+    })
+
     cmp.setup({
       completion = {
         completeopt = "menu,menuone,preview,noselect",
