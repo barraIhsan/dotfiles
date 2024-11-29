@@ -80,10 +80,10 @@ return {
       sources = cmp.config.sources({
         { name = "nvim_lsp" }, -- lsp
         { name = "luasnip" }, -- snippets
-        { name = "vimtex" }, -- tex
-        { name = "crates" }, -- rust crates
         { name = "buffer" }, -- text within current buffer
         { name = "path" }, -- file system paths
+        { name = "vimtex" }, -- tex
+        { name = "crates" }, -- rust crates
         { name = "emoji" }, -- unicode emoji
       }),
       -- configure lspkind for vscode-like pictograms in completion menu
