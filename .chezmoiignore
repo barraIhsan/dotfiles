@@ -1,6 +1,9 @@
 LICENSE
 README.md
 
+# ignore script
+/*.sh
+
 # ignore ~/.ssh if it's not my computer
 {{ if not (eq .chezmoi.username "barra") -}}
 .ssh/
