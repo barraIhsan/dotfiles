@@ -50,6 +50,7 @@ alias ls="eza --group-directories-first --icons=auto --git -h"
 alias ll="ls -la"
 alias cat="bat"
 alias lg="lazygit"
+alias youtube-dl="yt-dlp"
 
 # Yazi shell wrapper
 function y() {
