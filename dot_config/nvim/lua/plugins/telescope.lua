@@ -16,6 +16,7 @@ return {
           "yarn%.lock",
           "pnpm%-lock%.yaml",
           "package%-lock%.json",
+          "%.png$",
         },
         prompt_prefix = "   ",
         selection_caret = " ",
