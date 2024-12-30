@@ -4,16 +4,3 @@ README.md
 # ignore script
 /*.sh
 
-# ignore ~/.ssh if it's not my computer
-{{ if not (eq .chezmoi.username "barra") -}}
-.ssh/
-{{ end }}
-
-# or it already exist (don't prompt bitwarden password)
-# see https://github.com/twpayne/chezmoi/issues/2888
-{{ if stat (joinPath .chezmoi.homeDir ".ssh/personal") }}
-.ssh/personal
-.ssh/personal.pub
-.ssh/aur
-.ssh/aur.pub
-{{ end }}
