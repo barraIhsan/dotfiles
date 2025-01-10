@@ -29,6 +29,11 @@
   type = "archive"
   url = "https://github.com/tomasklaen/uosc/releases/latest/download/uosc.zip"
   refreshPeriod = "168h"
+# mpris support
+[".config/mpv/scripts/mpris.so"]
+  type = "file"
+  url = "https://github.com/hoyon/mpv-mpris/releases/latest/download/mpris.so"
+  refreshPeriod = "168h"
 # sponsorblock
 [".config/mpv/scripts/sponsorblock_minimal.lua"]
   type = "file"
