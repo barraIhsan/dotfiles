@@ -44,11 +44,6 @@
   type = "file"
   url = "https://raw.githubusercontent.com/synacktraa/ani-skip/master/skip.lua"
   refreshPeriod = "168h"
-# manage bookmarks
-[".config/mpv/scripts/bookmarker-menu.lua"]
-  type = "file"
-  url = "https://raw.githubusercontent.com/NurioHin/mpv-bookmarker/master/bookmarker-menu.lua"
-  refreshPeriod = "168h"
 # image crop
 [".config/mpv/scripts/crop.lua"]
   type = "file"
