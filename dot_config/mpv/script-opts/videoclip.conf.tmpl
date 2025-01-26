@@ -1,0 +1,16 @@
+# set video resolution to auto
+video_width=-2
+video_height=-2
+
+# set video quality to lossless
+video_quality=0
+
+# audio format
+audio_format=opus
+audio_bitrate=256k
+
+# path
+video_folder_path={{ output "xdg-user-dir" "VIDEOS" | trim }}
+audio_folder_path={{ output "xdg-user-dir" "MUSIC" | trim }}
+
+# vim: filetype=conf syntax=conf
