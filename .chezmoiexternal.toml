@@ -34,8 +34,11 @@
   type = "file"
   url = "https://raw.githubusercontent.com/synacktraa/ani-skip/master/skip.lua"
   refreshPeriod = "168h"
+# autoselect non-dub audio and sub (especially for anime)
+[".config/mpv/scripts/trackselect.lua"]
   type = "file"
   url = "https://raw.githubusercontent.com/po5/trackselect/refs/heads/master/trackselect.lua"
+  refreshPeriod = "168h"
 # videoclip
 [".config/mpv/scripts/videoclip"]
   type = "git-repo"
