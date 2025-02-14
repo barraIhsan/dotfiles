@@ -44,10 +44,8 @@
   type = "file"
   url = "https://raw.githubusercontent.com/synacktraa/ani-skip/master/skip.lua"
   refreshPeriod = "168h"
-# image crop
-[".config/mpv/scripts/crop.lua"]
   type = "file"
-  url = "https://github.com/TheAMM/mpv_crop_script/releases/latest/download/mpv_crop_script.lua"
+  url = "https://raw.githubusercontent.com/po5/trackselect/refs/heads/master/trackselect.lua"
 # videoclip
 [".config/mpv/scripts/videoclip"]
   type = "git-repo"
