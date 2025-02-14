@@ -1,18 +1,8 @@
 ## mpv shaders
 # anime4k shaders
-{{ $anime4kOs := "Windows" }}
-{{ if eq .chezmoi.os "darwin" }}
-  {{ $anime4kOs = "Mac_Linux" }}
-{{ else if eq .chezmoi.os "linux" }}
-  {{ if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
-    {{ $anime4kOs = "Windows" }}
-  {{ else }}
-    {{ $anime4kOs = "Mac_Linux" }}
-  {{ end }}
-{{ end }}
 [".config/mpv/shaders"]
   type = "archive"
-  url = "https://github.com/Tama47/Anime4K/releases/latest/download/GLSL_{{ $anime4kOs }}_High-end.zip"
+  url = "https://github.com/Tama47/Anime4K/releases/latest/download/GLSL_Mac_Linux_High-end.zip"
   refreshPeriod = "168h"
   include = ["shaders/**"]
   stripComponents = 1
