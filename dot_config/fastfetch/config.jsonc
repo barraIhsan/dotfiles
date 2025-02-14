@@ -40,7 +40,7 @@
     {
       "type": "packages",
       "key": "pkgs",
-      "format": "{2} (pacman) {39} (flatpak)"
+      "format": "{2} (pacman) {40} (flatpak)"
     },
     {
       "type": "memory",
