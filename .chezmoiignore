@@ -4,3 +4,7 @@ README.md
 # ignore script
 /*.sh
 
+
+{{ if not (eq .chezmoi.username "barra") -}}
+.gitconfig-gitlab
+{{ end }}

@@ -3,6 +3,8 @@
 	email = 57800056+barraIhsan@users.noreply.github.com
 	name = barraIhsan
 	signingkey = FF7D51EFEC75A00B
+[includeIf "hasconfig:remote.*.url:git@gitlab.com:*/**"]
+  path = ~/.gitconfig-gitlab
 {{- end }}
 [commit]
 	gpgsign = true
