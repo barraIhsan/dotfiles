@@ -18,6 +18,18 @@ return {
       },
     },
   },
+  -- flutter goodies
+  {
+    "nvim-flutter/flutter-tools.nvim",
+    lazy = false,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "stevearc/dressing.nvim",
+    },
+    config = {
+      fvm = true,
+    },
+  },
   -- latex
   {
     "lervag/vimtex",

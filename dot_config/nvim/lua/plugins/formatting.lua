@@ -19,6 +19,7 @@ return {
         json = { "jq" },
         yaml = { "yq" },
         sh = { "shfmt" },
+        dart = { "dart_format" },
         -- use lsp's formatting for html
         html = { lsp_format = "prefer" },
       },
