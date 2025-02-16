@@ -11,31 +11,6 @@ return {
     version = "*",
     opts = {},
   },
-  -- rust goodies
-  {
-    "mrcjkb/rustaceanvim",
-    version = "^5",
-    lazy = false,
-    ft = "rust",
-  },
-  -- manage rust crates
-  {
-    "saecki/crates.nvim",
-    ft = "toml",
-    opts = {
-      completion = {
-        cmp = {
-          enabled = true,
-        },
-      },
-    },
-  },
-  -- latex
-  {
-    "lervag/vimtex",
-    lazy = false,
-    ft = "tex",
-  },
   -- lsp signature help
   {
     "ray-x/lsp_signature.nvim",
@@ -71,26 +46,6 @@ return {
       lang = "javascript",
     },
   },
-  -- preview markdown on buffer
-  {
-    "MeanderingProgrammer/render-markdown.nvim",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-tree/nvim-web-devicons",
-    },
-    ft = { "markdown", "mdx" },
-    opts = {},
-  },
-  -- preview markdown on browser
-  {
-    "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    ft = "markdown",
-    build = function()
-      require("lazy").load({ plugins = { "markdown-preview.nvim" } })
-      vim.fn["mkdp#util#install"]()
-    end,
-  },
   -- bufferline
   {
     "akinsho/bufferline.nvim",
@@ -103,30 +58,12 @@ return {
       },
     },
   },
-  -- mdx support
-  {
-    "davidmh/mdx.nvim",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    opts = {},
-  },
   -- discord rpc
   {
     "andweeb/presence.nvim",
     opts = {
       neovim_image_text = "VSCode is bloated.",
     },
-  },
-  -- tailwind inline color, and sort
-  {
-    "luckasRanarison/tailwind-tools.nvim",
-    name = "tailwind-tools",
-    build = ":UpdateRemotePlugins",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-telescope/telescope.nvim",
-      "neovim/nvim-lspconfig",
-    },
-    opts = {},
   },
   -- naviate between nvim split and tmux pane
   {
