@@ -22,7 +22,7 @@
 # mpris support
 [".config/mpv/scripts/mpris.so"]
   type = "file"
-  url = "https://github.com/hoyon/mpv-mpris/releases/latest/download/mpris.so"
+  url = "https://github.com/eNV25/mpv-mpris2/releases/latest/download/mpris-x86_64-unknown-linux-gnu.so"
   refreshPeriod = "168h"
 # sponsorblock
 [".config/mpv/scripts/sponsorblock_minimal.lua"]
