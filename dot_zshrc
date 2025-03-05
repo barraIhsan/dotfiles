@@ -51,6 +51,9 @@ alias ll="ls -la"
 alias cat="bat"
 alias lg="lazygit"
 alias youtube-dl="yt-dlp"
+# Preserve extended attribute
+alias cp="cp -a"
+alias rsync="rsync -X"
 
 # Yazi shell wrapper
 function y() {
