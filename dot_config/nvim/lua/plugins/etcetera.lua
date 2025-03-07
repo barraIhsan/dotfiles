@@ -2,7 +2,13 @@ return {
   -- improve `vim.ui` interfaces
   {
     "stevearc/dressing.nvim",
-    event = "VeryLazy",
+    event = "BufReadPre",
+    opts = {},
+  },
+  -- improve quickfix
+  {
+    "stevearc/quicker.nvim",
+    event = "BufReadPre",
     opts = {},
   },
   -- visualize merge conflict marker

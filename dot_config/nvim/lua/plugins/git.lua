@@ -64,4 +64,8 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     keys = { { "<leader>lg", "<cmd>LazyGit<CR>", desc = "Open LazyGit" } },
   },
+  {
+    "sindrets/diffview.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
 }
