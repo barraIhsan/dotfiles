@@ -6,13 +6,12 @@ return {
     vim.o.timeoutlen = 500
 
     require("which-key").add({
-      { "<leader>s", group = "Splits" },
       { "<leader>t", group = "Tabs" },
       { "<leader>e", group = "Explore (nvim-tree)" },
       { "<leader>f", group = "Find (telescope)" },
-      { "<leader>w", group = "Workspace session" },
+      { "<leader>w", group = "Windows / Workplace" },
       { "<leader>x", group = "Trouble" },
-      { "<leader>h", group = "Hunk (gitsigns) & Harpoon" },
+      { "<leader>h", group = "Hunk (gitsigns)" },
     })
   end,
 }
