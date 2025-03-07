@@ -25,6 +25,9 @@ opt.showmode = false
 -- show where is our cursor currently in
 opt.cursorline = true
 
+-- disable ~ on eob
+opt.fillchars = "eob: "
+
 -- search settings
 opt.ignorecase = true
 opt.smartcase = true
