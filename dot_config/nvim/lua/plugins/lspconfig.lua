@@ -144,9 +144,9 @@ return {
           capabilities = capabilities,
           settings = {
             Lua = {
-              -- make the language server recognize "vim" global
+              -- make the language server recognize "vim" and "mp" global
               diagnostics = {
-                globals = { "vim" },
+                globals = { "vim", "mp" },
               },
               completion = {
                 callSnippet = "Replace",
