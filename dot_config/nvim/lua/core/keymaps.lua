@@ -23,8 +23,8 @@ keymap.set("n", "<leader>wl", "<C-w>L", { desc = "Move window to far left" })
 
 keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" })
 keymap.set("n", "<leader>tq", "<cmd>tabclose<CR>", { desc = "Close current tab" })
-keymap.set("n", "<tab>", "<cmd>tabn<CR>", { desc = "Go to next tab" })
-keymap.set("n", "<S-tab>", "<cmd>tabp<CR>", { desc = "Go to previous tab" })
+keymap.set({ "n", "i" }, "<A-l>", "<cmd>tabn<CR>", { desc = "Go to next tab" })
+keymap.set({ "n", "i" }, "<A-h>", "<cmd>tabp<CR>", { desc = "Go to previous tab" })
 
 -- set the cursor in the middle when doing ctrl-d ctrl-u
 keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
