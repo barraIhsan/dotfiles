@@ -23,8 +23,8 @@ local function screenshot(flag)
       os.execute("setfattr -n user.xdg.tags -v mpv " .. filename)
       -- xattr where and when comment
       local title = mp.get_property("media-title")
-      local pos = mp.get_property("time-pos")
-      os.execute(("setfattr -n user.xdg.comment -v '%s at %s' %s"):format(title, pos, filename))
+      local pos = mp.get_property_osd("time-pos/full")
+      os.execute(("setfattr -n user.xdg.comment -v %q %q"):format(title .. " at " .. pos, filename))
     end
   end
 end
