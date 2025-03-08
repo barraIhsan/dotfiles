@@ -66,9 +66,12 @@ return {
   },
   -- discord rpc
   {
-    "andweeb/presence.nvim",
+    "vyfor/cord.nvim",
+    build = ":Cord update",
     opts = {
-      neovim_image_text = "VSCode is bloated.",
+      display = {
+        theme = "catppuccin",
+      },
     },
   },
   -- naviate between nvim split and tmux pane
