@@ -1,6 +1,12 @@
 return {
   {
-    "tpope/vim-fugitive",
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "sindrets/diffview.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    config = true,
   },
   {
     "lewis6991/gitsigns.nvim",
@@ -53,6 +59,22 @@ return {
     },
   },
   {
+    "sindrets/diffview.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {
+      view = {
+        merge_tool = {
+          layout = "diff1_plain",
+        },
+      },
+    },
+  },
+  -- trying to migrate to neogit, still keeping these
+  -- 2 plugin for some time.. to get used to neogit
+  {
+    "tpope/vim-fugitive",
+  },
+  {
     "kdheepak/lazygit.nvim",
     cmd = {
       "LazyGit",
@@ -63,9 +85,5 @@ return {
     },
     dependencies = { "nvim-lua/plenary.nvim" },
     keys = { { "<leader>lg", "<cmd>LazyGit<CR>", desc = "Open LazyGit" } },
-  },
-  {
-    "sindrets/diffview.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
   },
 }
