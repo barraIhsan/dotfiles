@@ -31,21 +31,6 @@ return {
     main = "ibl",
     opts = {},
   },
-  -- solve leetcode problems
-  {
-    "kawre/leetcode.nvim",
-    cmd = "Leet",
-    build = ":TSUpdate html",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-telescope/telescope.nvim",
-      "nvim-lua/plenary.nvim", -- required by telescope
-      "MunifTanjim/nui.nvim",
-    },
-    opts = {
-      lang = "javascript",
-    },
-  },
   -- bufferline
   {
     "akinsho/bufferline.nvim",
