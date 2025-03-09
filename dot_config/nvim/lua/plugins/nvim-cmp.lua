@@ -29,7 +29,7 @@ return {
 
     -- load vscode-style snippets
     require("luasnip.loaders.from_vscode").lazy_load({
-      exclude = { "html" },
+      exclude = { "all", "html", "gitcommit" },
     })
 
     -- load custom snippets
@@ -66,7 +66,7 @@ return {
           else
             fallback()
           end
-        end, { "i", "n", "s" }),
+        end, { "i", "s" }),
 
         ["<S-Tab>"] = cmp.mapping(function(fallback)
           if luasnip.locally_jumpable(-1) then
@@ -74,7 +74,7 @@ return {
           else
             fallback()
           end
-        end, { "i", "n", "s" }),
+        end, { "i", "s" }),
       }),
       -- sources for autocompletion
       sources = cmp.config.sources({
