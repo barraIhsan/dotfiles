@@ -69,6 +69,12 @@ return {
       },
     },
   },
+  -- visualize merge conflict marker
+  {
+    "akinsho/git-conflict.nvim",
+    version = "*",
+    opts = {},
+  },
   -- trying to migrate to neogit, still keeping these
   -- 2 plugin for some time.. to get used to neogit
   {
