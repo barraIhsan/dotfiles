@@ -19,11 +19,18 @@ local function screenshot(flag)
         os.execute("xclip -sel c -t image/png -i " .. filename)
       end
 
-      -- xattr mpv tag
-      os.execute("setfattr -n user.xdg.tags -v mpv " .. filename)
-      -- xattr where and when comment
+      -- get the media title or filename without extension
       local title = mp.get_property("media-title")
+      if title == mp.get_property("filename") then
+        title = mp.get_property("filename/no-ext")
+      end
+      -- get the current position of the file
+      -- as HH:MM:SS.mmm
       local pos = mp.get_property_osd("time-pos/full")
+
+      -- assign xattr tag, mpv
+      os.execute("setfattr -n user.xdg.tags -v mpv " .. filename)
+      -- assign xattr comment, title and position
       os.execute(("setfattr -n user.xdg.comment -v %q %q"):format(title .. " at " .. pos, filename))
     end
   end
