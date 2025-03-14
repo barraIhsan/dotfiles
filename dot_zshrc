@@ -36,6 +36,7 @@ eval "$(fzf --zsh)"
 source /usr/share/nvm/init-nvm.sh
 
 # Add directory to PATH env
+path+=~/.local/bin
 path+=~/.yarn/bin
 path+=~/.cargo/bin
 
