@@ -33,7 +33,7 @@ local function select()
 
   -- list audio codec from best
   local codec = { "flac", "eac3", "opus", "aac", "mp3" }
-  local codecid = #codec
+  local bcodec = #codec
 
   local tracklist = mp.get_property_native("track-list")
   for _, track in ipairs(tracklist) do
@@ -53,7 +53,8 @@ local function select()
 
         -- select the best codec
         for i, c in ipairs(codec) do
-          if track["codec"] == c and i < codecid then
+          if track["codec"] == c and i < bcodec then
+            bcodec = i
             arate[tid] = arate[tid] + 1
           end
         end
