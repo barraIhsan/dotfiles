@@ -82,7 +82,7 @@ local function select()
 
         -- avoid "sign" and "s&s"
         if string.match(title, "sign") or string.match(title, "s&s") then
-          srate[tid] = srate[tid] - 2
+          srate[tid] = srate[tid] - 3
         end
         -- prioritize "honor" or "honour"
         if string.match(title, "honou?r") then
@@ -90,7 +90,7 @@ local function select()
         end
         -- prioritize ass subtitle
         if track["codec"] == "ass" then
-          srate[tid] = srate[tid] + 1
+          srate[tid] = srate[tid] + 2
         end
       end
     end
