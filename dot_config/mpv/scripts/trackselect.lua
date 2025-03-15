@@ -35,9 +35,6 @@ local function select()
 
   -- list audio codec from best
   local codec = { flac = 5, eac3 = 4, opus = 3, aac = 2, mp3 = 1 }
-  -- b means best
-  local bcodec = 1
-  local bcodec_tid = 1
 
   local tracklist = mp.get_property_native("track-list")
   for _, track in ipairs(tracklist) do
@@ -53,17 +50,11 @@ local function select()
 
         -- no mono audio please
         if track["demux-channel-count"] < 2 then
-          arate[tid] = arate[tid] - 1
+          arate[tid] = arate[tid] - #codec
         end
 
-        -- select the best codec
-        -- if track["codec"] == c and i < bcodec then
-        --   arate[tid] = arate[tid] + 1
-        -- end
-        if codec[track["codec"]] > bcodec then
-          bcodec = codec[track["codec"]]
-          bcodec_tid = track["id"]
-        end
+        -- the better the codec, the better the score
+        arate[tid] = arate[tid] + (codec[track["codec"]] or 0)
       end
     end
 
@@ -93,9 +84,6 @@ local function select()
       end
     end
   end
-
-  -- give score to the best acodec
-  arate[bcodec_tid] = arate[bcodec_tid] + 1
 
   -- select audio and sub track
   mp.set_property("aid", highest(arate))
