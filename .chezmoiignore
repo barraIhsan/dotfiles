@@ -1,9 +1,5 @@
 LICENSE
-README.md
-
-# ignore script
-/*.sh
-
+**/README.md
 
 {{ if not (eq .chezmoi.username "barra") -}}
 .gitconfig-gitlab
