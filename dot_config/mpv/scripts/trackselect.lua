@@ -43,7 +43,7 @@ local function select()
 
     -- if there's japan audio
     -- select the best one
-    if track["type"] == "audio" then
+    if track["type"] == "audio" and track["lang"] then
       if track["lang"] == "ja" or string.match(track["lang"], "jpn?") then
         -- set initial
         arate[tid] = 0
@@ -73,7 +73,7 @@ local function select()
     -- avoid "sign" and "s&s"
     -- prioritize "honor" on sub "title"
     -- prioritize ass on sub "codec"
-    if track["type"] == "sub" then
+    if track["type"] == "sub" and track["lang"] then
       if string.match(track["lang"], "en.?") then
         -- set initial
         srate[tid] = 0
