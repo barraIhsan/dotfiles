@@ -34,7 +34,7 @@ local function select()
   local srate = {}
 
   -- list audio codec from best
-  local codec = { flac = 5, eac3 = 4, opus = 3, aac = 2, mp3 = 1 }
+  local codec = { _count = 5, flac = 5, eac3 = 4, opus = 3, aac = 2, mp3 = 1 }
 
   local tracklist = mp.get_property_native("track-list")
   for _, track in ipairs(tracklist) do
@@ -48,13 +48,24 @@ local function select()
         -- set initial
         arate[tid] = 0
 
-        -- no mono audio please
-        if track["demux-channel-count"] < 2 then
-          arate[tid] = arate[tid] - #codec
-        end
+        -- no mono audio please and add score
+        -- if it has more than 2 channel (surround)
+        arate[tid] = arate[tid] + (track["demux-channel-count"] - 2)
 
-        -- the better the codec, the better the score
-        arate[tid] = arate[tid] + (codec[track["codec"]] or 0)
+        -- prioritize best codec
+        -- use decimal point 0.x
+        arate[tid] = arate[tid] + (1 + (codec[track["codec"]] or -1) / codec["_count"])
+
+        -- prioritize highest sample rate when multiple track have the best codec
+        -- use decimal point after codec 0.0xxx
+        -- 1e7 here because the highest samplerate is 384000
+        arate[tid] = arate[tid] + (track["demux-samplerate"] / 1e7)
+
+        -- NOTE: There should be an audio bitrate comparison here by trying
+        -- audio track one-by-one, and check `audio-bitrate` property.
+        -- But sometimes audio can have a variable bitrate, so we can't
+        -- just rely on it. Why we can't just use `demux-bitrate` you
+        -- might say? It's usually unavailable
       end
     end
 
