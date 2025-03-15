@@ -1,3 +1,5 @@
+# ---------------------------------------------------------------------
+
 # Preserve History
 HISTFILE=~/.zsh_history
 HISTSIZE=5000
@@ -27,10 +29,8 @@ autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey '^v' edit-command-line
 
-# Initialize programs
-eval "$(starship init zsh)"
-eval "$(zoxide init --cmd cd zsh)"
-eval "$(fzf --zsh)"
+# ---------------------------------------------------------------------
+
 # XDG Base Directory Specification
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
@@ -39,8 +39,6 @@ export XDG_STATE_HOME=$HOME/.local/state
 # XDG User Directory Specification
 source $XDG_CONFIG_HOME/user-dirs.dirs
 
-# Source nvm
-source /usr/share/nvm/init-nvm.sh
 # clean home dir
 # https://wiki.archlinux.org/title/XDG_Base_Directory
 # config
@@ -56,13 +54,29 @@ export FVM_CACHE_PATH=$XDG_DATA_HOME/fvm
 # state
 export PYTHON_HISTORY=$XDG_STATE_HOME/python_history
 
+# use tty gpg
+export GPG_TTY=$(tty)
+# set default editor to neovim
+export VISUAL=nvim
+export EDITOR=$VISUAL
+
 # Add directory to PATH env
 path+=~/.local/bin
 path+=~/.yarn/bin
 path+=~/.cargo/bin
 
+# ---------------------------------------------------------------------
+
 # Run fastfetch
 fastfetch
+
+# Initialize programs
+eval "$(starship init zsh)"
+eval "$(zoxide init --cmd cd zsh)"
+eval "$(fzf --zsh)"
+
+# Source nvm
+source /usr/share/nvm/init-nvm.sh
 
 # Aliases
 alias c="clear"
@@ -87,18 +101,13 @@ function y() {
 	rm -f -- "$tmp"
 }
 
-# Environment variables
-# use tty gpg
-export GPG_TTY=$(tty)
-# set default editor as neovim
-export VISUAL=nvim
-export EDITOR=$VISUAL
-
 # Start ssh-agent (if it's not started yet), and remove any output
 [ -z "$SSH_AUTH_SOCK" ] && eval "$(ssh-agent -s | grep -v '^echo')"
 
+# ---------------------------------------------------------------------
+
 # Initialize Zinit
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+ZINIT_HOME="$XDG_DATA_HOME/zinit/zinit.git"
 
 # Download Zinit, if it's not there yet
 if [ ! -d "$ZINIT_HOME" ]; then
@@ -107,7 +116,7 @@ if [ ! -d "$ZINIT_HOME" ]; then
 fi
 
 # Source / Load zinit
-source "${ZINIT_HOME}/zinit.zsh"
+source $ZINIT_HOME/zinit.zsh
 
 # Add zsh plugin
 zinit light zsh-users/zsh-syntax-highlighting
@@ -116,8 +125,8 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 zinit snippet OMZP::command-not-found
 zinit snippet OMZP::sudo
-zinit snippet OMZP::colored-man-pages
 
 zinit cdreplay -q
 
+# ---------------------------------------------------------------------
 # vim: filetype=sh syntax=sh
