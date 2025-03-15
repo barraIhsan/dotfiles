@@ -56,9 +56,10 @@ export PYTHON_HISTORY=$XDG_STATE_HOME/python_history
 
 # use tty gpg
 export GPG_TTY=$(tty)
-# set default editor to neovim
+# set default editor and manpager to neovim
 export VISUAL=nvim
 export EDITOR=$VISUAL
+export MANPAGER="nvim +Man!"
 
 # Add directory to PATH env
 path+=~/.local/bin
