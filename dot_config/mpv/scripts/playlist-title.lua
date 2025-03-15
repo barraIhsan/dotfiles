@@ -13,7 +13,7 @@ local function title()
   --
   -- Force media title to be the playlist title
   -- only if it have a playlist title
-  if pl_title ~= nil then
+  if pl_title then
     mp.set_property("force-media-title", pl_title)
   end
 end
