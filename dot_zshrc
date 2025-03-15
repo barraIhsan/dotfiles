@@ -62,9 +62,9 @@ export EDITOR=$VISUAL
 export MANPAGER="nvim +Man!"
 
 # Add directory to PATH env
+typeset -U path PATH # prevent duplicate
 path+=~/.local/bin
-path+=~/.yarn/bin
-path+=~/.cargo/bin
+path+=$CARGO_HOME/bin
 
 # ---------------------------------------------------------------------
 
