@@ -66,6 +66,7 @@ export MANPAGER="nvim +Man!"
 typeset -U path PATH # prevent duplicate
 path+=~/.local/bin
 path+=$CARGO_HOME/bin
+path+=$FVM_CACHE_PATH/default/bin
 
 # ---------------------------------------------------------------------
 
