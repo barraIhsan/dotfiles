@@ -2,7 +2,7 @@ require("mp")
 
 -- list of languages that will be cycled
 -- use current to add current track to the cycle list
-local slang = { "id" }
+local slang = { "en", "es" }
 local alang = { "en" }
 local current = true
 
@@ -11,11 +11,22 @@ local slist, alist = {}, {}
 local slistid, alistid = { 1 }, { 1 }
 local currentid = { 0, 0 }
 local init = false
+local stemp, atemp = {}, {}
+local isTemp = { true, true }
 
-local function get_tracks(lang, track, list)
+local function get_tracks(lang, track, list, current_id, temp, index)
+  if track["id"] == current_id then
+    isTemp[index] = false
+    return
+  end
+
   for _, value in ipairs(lang) do
     if string.match(track["lang"], value) then
-      table.insert(list, track["id"])
+      if isTemp[index] then
+        table.insert(temp, track["id"])
+      else
+        table.insert(list, track["id"])
+      end
     end
   end
 end
@@ -38,13 +49,30 @@ local function populate_list()
   local tracklist = mp.get_property_native("track-list")
   for _, track in ipairs(tracklist) do
     if track["lang"] then
-      if track["type"] == "sub" and track["id"] ~= currentid[1] then
-        get_tracks(slang, track, slist)
+      if track["type"] == "sub" then
+        get_tracks(slang, track, slist, currentid[1], stemp, 1)
       end
-      if track["type"] == "audio" and track["id"] ~= currentid[2] then
-        get_tracks(alang, track, alist)
+      if track["type"] == "audio" then
+        get_tracks(alang, track, alist, currentid[2], atemp, 2)
       end
     end
+  end
+
+  for key, value in pairs(slist) do
+    print(key, value, "slist")
+  end
+  for key, value in pairs(stemp) do
+    print(key, value, "stemp")
+  end
+
+  -- add the temp
+  for _, value in ipairs(atemp) do
+    print("masuk sisanya", value)
+    table.insert(alist, value)
+  end
+  for _, value in ipairs(stemp) do
+    print("masuk sisanya", value)
+    table.insert(slist, value)
   end
 end
 
