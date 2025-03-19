@@ -61,7 +61,8 @@ local function cycle(list, index, prop)
     -- osd message
     local type = (prop == "sid") and "sub" or "audio"
     local lang = mp.get_property("current-tracks/" .. type .. "/lang")
-    mp.osd_message(("Changed %s to %s (#%s)"):format(type, lang, list[index[1]]))
+    local title = mp.get_property("current-tracks/" .. type .. "/title") or ""
+    mp.osd_message(("Changed %s to [%s] %s (#%s)"):format(type, lang, title, list[index[1]]))
   end
 end
 
