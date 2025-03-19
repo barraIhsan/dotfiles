@@ -11,7 +11,7 @@ source $XDG_CONFIG_HOME/user-dirs.dirs
 # ---------------------------------------------------------------------
 
 # Preserve History
-HISTFILE=~/.zsh_history
+HISTFILE=$XDG_STATE_HOME/zsh_history
 HISTSIZE=5000
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
@@ -32,7 +32,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -1 --color=always $real
 bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit -d $XDG_CACHE_HOME/zcompdump
 
 # Edit the current command line in $EDITOR
 autoload -Uz edit-command-line
