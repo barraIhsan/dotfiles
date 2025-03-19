@@ -2,7 +2,7 @@ require("mp")
 
 -- list of languages that will be cycled
 -- use current to add current track to the cycle list
-local slang = { "jp" }
+local slang = { "id" }
 local alang = { "en" }
 local current = true
 
@@ -57,6 +57,11 @@ local function cycle(list, index, prop)
       mp.set_property(prop, list[index[1] + 1])
       index[1] = index[1] + 1
     end
+
+    -- osd message
+    local type = (prop == "sid") and "sub" or "audio"
+    local lang = mp.get_property("current-tracks/" .. type .. "/lang")
+    mp.osd_message(("Changed %s to %s (#%s)"):format(type, lang, list[index[1]]))
   end
 end
 
