@@ -6,23 +6,34 @@ local slang = { "en", "es" }
 local alang = { "en" }
 local current = true
 
--- hold the list of subtitle and audio track to cycle through
-local slist, alist = {}, {}
-local slistid, alistid = { 1 }, { 1 }
-local currentid = { 0, 0 }
+-- first time init
 local init = false
-local stemp, atemp = {}, {}
-local isTemp = { true, true }
+-- create sub and audio list
+local function create_list(type)
+  local prop = type .. "id"
+  local lang = (type == "a") and "audio" or "sub"
+  return {
+    list = {},
+    listid = { 1 },
+    currentid = { 0 },
+    temp = {},
+    is_temp = { true },
+    prop = prop,
+    lang = lang,
+  }
+end
+local sub, audio = create_list("s"), create_list("a")
 
-local function get_tracks(lang, track, list, current_id, temp, index)
-  if track["id"] == current_id then
-    isTemp[index] = false
+local function get_tracks(track, type, lang)
+  local currentid, temp, list = type["currentid"][1], type["temp"], type["list"]
+  if track["id"] == currentid then
+    type["is_temp"][1] = false
     return
   end
 
   for _, value in ipairs(lang) do
     if string.match(track["lang"], value) then
-      if isTemp[index] then
+      if type["is_temp"][1] then
         table.insert(temp, track["id"])
       else
         table.insert(list, track["id"])
@@ -33,13 +44,19 @@ end
 
 local function add_current()
   if current then
-    currentid[1] = mp.get_property_native("sid")
-    currentid[2] = mp.get_property_native("aid")
+    sub["currentid"][1] = mp.get_property_native("sid")
+    audio["currentid"][1] = mp.get_property_native("aid")
     init = true
 
     -- append current
-    table.insert(slist, currentid[1])
-    table.insert(alist, currentid[2])
+    table.insert(sub["list"], sub["currentid"][1])
+    table.insert(audio["list"], audio["currentid"][1])
+  end
+end
+
+local function add_temp(list, temp)
+  for _, value in ipairs(temp) do
+    table.insert(list, value)
   end
 end
 
@@ -50,47 +67,34 @@ local function populate_list()
   for _, track in ipairs(tracklist) do
     if track["lang"] then
       if track["type"] == "sub" then
-        get_tracks(slang, track, slist, currentid[1], stemp, 1)
+        get_tracks(track, sub, slang)
       end
       if track["type"] == "audio" then
-        get_tracks(alang, track, alist, currentid[2], atemp, 2)
+        get_tracks(track, audio, alang)
       end
     end
-  end
-
-  for key, value in pairs(slist) do
-    print(key, value, "slist")
-  end
-  for key, value in pairs(stemp) do
-    print(key, value, "stemp")
   end
 
   -- add the temp
-  for _, value in ipairs(atemp) do
-    print("masuk sisanya", value)
-    table.insert(alist, value)
-  end
-  for _, value in ipairs(stemp) do
-    print("masuk sisanya", value)
-    table.insert(slist, value)
-  end
+  add_temp(sub["list"], sub["temp"])
+  add_temp(audio["list"], audio["temp"])
 end
 
-local function cycle(list, index, prop)
+local function cycle(type)
+  local list, prop, lang = type["list"], type["prop"], type["lang"]
   if #list > 1 then
-    if index[1] == #list then
+    if type["listid"][1] == #list then
       mp.set_property(prop, list[1])
-      index[1] = 1
+      type["listid"][1] = 1
     else
-      mp.set_property(prop, list[index[1] + 1])
-      index[1] = index[1] + 1
+      mp.set_property(prop, list[type["listid"][1] + 1])
+      type["listid"][1] = type["listid"][1] + 1
     end
 
     -- osd message
-    local type = (prop == "sid") and "sub" or "audio"
-    local lang = mp.get_property("current-tracks/" .. type .. "/lang")
-    local title = mp.get_property("current-tracks/" .. type .. "/title") or ""
-    mp.osd_message(("Changed %s to [%s] %s (#%s)"):format(type, lang, title, list[index[1]]))
+    local current_lang = mp.get_property("current-tracks/" .. lang .. "/lang")
+    local current_title = mp.get_property("current-tracks/" .. lang .. "/title") or ""
+    mp.osd_message(("Changed %s to [%s] %s (#%s)"):format(lang, current_lang, current_title, list[type["listid"][1]]))
   end
 end
 
@@ -98,14 +102,14 @@ local function cycle_sub()
   if not init then
     populate_list()
   end
-  cycle(slist, slistid, "sid")
+  cycle(sub)
 end
 
 local function cycle_audio()
   if not init then
     populate_list()
   end
-  cycle(alist, alistid, "aid")
+  cycle(audio)
 end
 
 mp.add_key_binding("'", "cycle-sub", cycle_sub)
