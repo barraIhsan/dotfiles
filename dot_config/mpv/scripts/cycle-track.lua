@@ -41,9 +41,11 @@ end
 
 local function add_current()
   if current then
-    sub["currentid"][1] = mp.get_property_native("sid")
-    audio["currentid"][1] = mp.get_property_native("aid")
-    init = true
+    if not init then
+      sub["currentid"][1] = mp.get_property_native("sid")
+      audio["currentid"][1] = mp.get_property_native("aid")
+      init = true
+    end
 
     -- append current
     table.insert(sub["list"], sub["currentid"][1])
@@ -58,6 +60,8 @@ local function add_temp(list, temp)
 end
 
 local function populate_list()
+  sub["list"], audio["list"] = {}, {}
+
   add_current()
 
   local tracklist = mp.get_property_native("track-list")
@@ -77,6 +81,8 @@ local function populate_list()
   add_temp(audio["list"], audio["temp"])
 end
 
+local function track_changed()
+  if init then
     populate_list()
   end
 end
@@ -107,3 +113,4 @@ end
 
 mp.add_key_binding("'", "cycle-sub", cycle(sub))
 mp.add_key_binding(";", "cycle-audio", cycle(audio))
+mp.observe_property("track-list/count", "number", track_changed)
