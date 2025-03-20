@@ -9,9 +9,7 @@ local current = true
 -- first time init
 local init = false
 -- create sub and audio list
-local function create_list(type)
-  local prop = type .. "id"
-  local lang = (type == "a") and "audio" or "sub"
+local function create_list(prop)
   return {
     list = {},
     listid = { 1 },
@@ -19,10 +17,9 @@ local function create_list(type)
     temp = {},
     is_temp = { true },
     prop = prop,
-    lang = lang,
   }
 end
-local sub, audio = create_list("s"), create_list("a")
+local sub, audio = create_list("sub"), create_list("audio")
 
 local function get_tracks(track, type, lang)
   local currentid, temp, list = type["currentid"][1], type["temp"], type["list"]
@@ -81,20 +78,15 @@ local function populate_list()
 end
 
 local function cycle(type)
-  local list, prop, lang = type["list"], type["prop"], type["lang"]
+  local list, prop = type["list"], type["prop"]
   if #list > 1 then
-    if type["listid"][1] == #list then
-      mp.set_property(prop, list[1])
-      type["listid"][1] = 1
-    else
-      mp.set_property(prop, list[type["listid"][1] + 1])
-      type["listid"][1] = type["listid"][1] + 1
-    end
+    -- increment index and wrap around
+    type["listid"][1] = (type["listid"][1] % #list) + 1
 
     -- osd message
-    local current_lang = mp.get_property("current-tracks/" .. lang .. "/lang")
-    local current_title = mp.get_property("current-tracks/" .. lang .. "/title") or ""
-    mp.osd_message(("Changed %s to [%s] %s (#%s)"):format(lang, current_lang, current_title, list[type["listid"][1]]))
+    local lang = mp.get_property("current-tracks/" .. prop .. "/lang")
+    local title = mp.get_property("current-tracks/" .. prop .. "/title") or ""
+    mp.osd_message(("Changed %s to [%s] %s (#%s)"):format(prop, lang, title, list[type["listid"][1]]))
   end
 end
 
