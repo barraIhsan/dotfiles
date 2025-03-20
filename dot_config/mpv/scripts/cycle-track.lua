@@ -77,33 +77,33 @@ local function populate_list()
   add_temp(audio["list"], audio["temp"])
 end
 
+    populate_list()
+  end
+end
+
 local function cycle(type)
-  local list, prop = type["list"], type["prop"]
-  if #list > 1 then
-    -- increment index and wrap around
-    type["listid"][1] = (type["listid"][1] % #list) + 1
-    mp.set_property(prop:sub(1, 1) .. "id", list[type["listid"][1]])
+  return function()
+    if not init then
+      populate_list()
+    end
 
-    -- osd message
-    local lang = mp.get_property("current-tracks/" .. prop .. "/lang")
-    local title = mp.get_property("current-tracks/" .. prop .. "/title") or ""
-    mp.osd_message(("Changed %s to [%s] %s (#%s)"):format(prop, lang, title, list[type["listid"][1]]))
+    for key, value in pairs(sub["list"]) do
+      print(key, value)
+    end
+
+    local list, prop = type["list"], type["prop"]
+    if #list > 1 then
+      -- increment index and wrap around
+      type["listid"][1] = (type["listid"][1] % #list) + 1
+      mp.set_property(prop:sub(1, 1) .. "id", list[type["listid"][1]])
+
+      -- osd message
+      local lang = mp.get_property("current-tracks/" .. prop .. "/lang")
+      local title = mp.get_property("current-tracks/" .. prop .. "/title") or ""
+      mp.osd_message(("Changed %s to [%s] %s (#%s)"):format(prop, lang, title, list[type["listid"][1]]))
+    end
   end
 end
 
-local function cycle_sub()
-  if not init then
-    populate_list()
-  end
-  cycle(sub)
-end
-
-local function cycle_audio()
-  if not init then
-    populate_list()
-  end
-  cycle(audio)
-end
-
-mp.add_key_binding("'", "cycle-sub", cycle_sub)
-mp.add_key_binding(";", "cycle-audio", cycle_audio)
+mp.add_key_binding("'", "cycle-sub", cycle(sub))
+mp.add_key_binding(";", "cycle-audio", cycle(audio))
