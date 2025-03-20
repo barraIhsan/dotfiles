@@ -82,6 +82,7 @@ local function cycle(type)
   if #list > 1 then
     -- increment index and wrap around
     type["listid"][1] = (type["listid"][1] % #list) + 1
+    mp.set_property(prop:sub(1, 1) .. "id", list[type["listid"][1]])
 
     -- osd message
     local lang = mp.get_property("current-tracks/" .. prop .. "/lang")
