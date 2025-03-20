@@ -2,7 +2,7 @@ require("mp")
 
 -- list of languages that will be cycled
 -- use current to add current track to the cycle list
-local slang = { "en", "es" }
+local slang = { "id" }
 local alang = { "en" }
 local current = true
 
