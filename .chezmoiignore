@@ -1,6 +1,4 @@
 LICENSE
 **/README.md
 
-{{ if not (eq .chezmoi.username "barra") -}}
-.gitconfig-gitlab
-{{ end }}
+.config/git
