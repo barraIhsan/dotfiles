@@ -5,7 +5,6 @@ return {
     "williamboman/mason.nvim",
     "hrsh7th/cmp-nvim-lsp",
     { "antosha417/nvim-lsp-file-operations", config = true },
-    { "folke/lazydev.nvim", ft = "lua", opts = {} },
     "b0o/schemastore.nvim",
   },
   config = function()
