@@ -49,6 +49,11 @@ return {
       },
     },
   },
+  -- notification
+  {
+    "j-hui/fidget.nvim",
+    opts = {},
+  },
   -- discord rpc
   {
     "vyfor/cord.nvim",
