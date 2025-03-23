@@ -79,6 +79,10 @@ source $NVM_DIR/nvm.sh
 # Start ssh-agent (if it's not started yet), and remove any output
 [ -z "$SSH_AUTH_SOCK" ] && eval "$(ssh-agent -s | grep -v '^echo')"
 
+# Reduce CUDA memory fragmentation in PyTorch by
+# enabling memory segments
+export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+
 # ---------------------------------------------------------------------
 
 # clean home dir
