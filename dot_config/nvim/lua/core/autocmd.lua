@@ -24,9 +24,18 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- add colorcolumn on gitcommit file
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "gitcommit" },
   callback = function()
     vim.opt_local.colorcolumn = "50,72"
+  end,
+})
+
+-- disable signcolumn on manpages
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "man",
+  callback = function()
+    vim.opt_local.signcolumn = "no"
   end,
 })
