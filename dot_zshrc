@@ -6,7 +6,7 @@ export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_STATE_HOME=$HOME/.local/state
 # XDG User Directory Specification
-source $XDG_CONFIG_HOME/user-dirs.dirs
+eval "$(grep -E '^XDG_.+_DIR=' $XDG_CONFIG_HOME/user-dirs.dirs | sed 's/^/export /')"
 
 # ---------------------------------------------------------------------
 
