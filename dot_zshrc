@@ -15,13 +15,12 @@ HISTFILE=$XDG_STATE_HOME/zsh_history
 HISTSIZE=5000
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
-setopt appendhistory
-setopt sharehistory
-setopt hist_ignore_space
-setopt hist_ignore_all_dups
-setopt hist_save_no_dups
-setopt hist_ignore_dups
-setopt hist_find_no_dups
+setopt appendhistory          # Append to $HISTFILE, not override
+setopt sharehistory           # Sync across session
+setopt hist_ignore_space      # Ignore commands starting with a space
+setopt hist_ignore_all_dups   # Remove all duplicates
+setopt hist_find_no_dups      # Avoid showing duplicates in Ctrl+R
+setopt hist_expire_dups_first # Expire the oldest duplicate first
 
 # Completion & Keybind
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
