@@ -12,7 +12,7 @@ eval "$(grep -E '^XDG_.+_DIR=' $XDG_CONFIG_HOME/user-dirs.dirs | sed 's/^/export
 
 # Preserve History
 HISTFILE=$XDG_STATE_HOME/zsh_history
-HISTSIZE=5000
+HISTSIZE=1000000
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
 setopt appendhistory          # Append to $HISTFILE, not override
