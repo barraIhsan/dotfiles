@@ -9,12 +9,13 @@ return {
   -- manage rust crates
   {
     "saecki/crates.nvim",
-    ft = "toml",
+    event = "BufRead Cargo.toml",
     opts = {
-      completion = {
-        cmp = {
-          enabled = true,
-        },
+      lsp = {
+        enabled = true,
+        actions = true,
+        completion = true,
+        hover = true,
       },
     },
   },
@@ -45,14 +46,18 @@ return {
   -- tailwind inline color, and sort
   {
     "luckasRanarison/tailwind-tools.nvim",
-    name = "tailwind-tools",
     build = ":UpdateRemotePlugins",
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "nvim-telescope/telescope.nvim",
       "neovim/nvim-lspconfig",
     },
-    opts = {},
+    opts = {
+      -- use rounded box for tailwind colors
+      document_color = {
+        inline_symbol = " ",
+      },
+    },
   },
   -- preview markdown on buffer
   {
