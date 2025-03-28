@@ -76,11 +76,19 @@ return {
     capabilities.textDocument.completion.completionItem.snippetSupport = true
 
     -- change diagnostic symbols in the sign column (gutter)
-    local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-    for type, icon in pairs(signs) do
-      local hl = "DiagnosticSign" .. type
-      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-    end
+    local x = vim.diagnostic.severity
+    vim.diagnostic.config({
+      virtual_text = { prefix = "" },
+      signs = {
+        text = {
+          [x.ERROR] = " ",
+          [x.WARN] = " ",
+          [x.HINT] = "󰠠 ",
+          [x.INFO] = " ",
+        },
+      },
+      underline = true,
+    })
 
     -- enable inlay hint
     vim.lsp.inlay_hint.enable(true, { 0 })
