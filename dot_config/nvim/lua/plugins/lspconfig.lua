@@ -93,11 +93,11 @@ return {
     -- enable inlay hint
     vim.lsp.inlay_hint.enable(true, { 0 })
 
-    -- enable borders
-    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
-    vim.diagnostic.config({
-      float = { border = "rounded", prefix = "", header = "", severity_sort = true, source = true },
-    })
+    -- do the following for lsp diagnostics:
+    -- 1. disable prefix (e.g. number)
+    -- 2. sort from the highest severity
+    -- 3. include the source where the warn/error come from
+    vim.diagnostic.config({ float = { prefix = "", header = "", severity_sort = true, source = true } })
 
     local lspconfig = require("lspconfig")
     require("mason-lspconfig").setup_handlers({

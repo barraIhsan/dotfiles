@@ -19,6 +19,9 @@ opt.breakindent = true
 -- save undo history
 opt.undofile = true
 
+-- bordered floating window
+opt.winborder = "rounded"
+
 -- disable built-in status line
 opt.showmode = false
 

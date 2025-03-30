@@ -39,3 +39,21 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.signcolumn = "no"
   end,
 })
+
+-- telescope/plenary new winborder workaround
+-- See https://github.com/nvim-telescope/telescope.nvim/issues/3436
+--
+-- This affects any plugin that uses telescope:
+-- telescope.nvim, neogit, dressing.nvim
+vim.api.nvim_create_autocmd("User", {
+  pattern = "TelescopeFindPre",
+  callback = function()
+    vim.opt_local.winborder = "none"
+    vim.api.nvim_create_autocmd("WinLeave", {
+      once = true,
+      callback = function()
+        vim.opt_local.winborder = "rounded"
+      end,
+    })
+  end,
+})
