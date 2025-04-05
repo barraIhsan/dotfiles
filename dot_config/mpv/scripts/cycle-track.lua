@@ -1,9 +1,17 @@
 require("mp")
 
 -- list of languages that will be cycled
+-- lua pattern is supported
+-- https://www.lua.org/manual/5.4/manual.html#6.4.1
+--
+-- usually it will be either EITF/BCP 47 code
+-- https://en.wikipedia.org/wiki/IETF_language_tag#List_of_common_primary_language_subtags
+-- or ISO 639-2 code
+-- https://www.loc.gov/standards/iso639-2/php/code_list.php
+--
+local slang = { "idn?", "ind" }
+local alang = { "en.?" }
 -- use current to add current track to the cycle list
-local slang = { "id" }
-local alang = { "en" }
 local current = true
 
 -- first time init
