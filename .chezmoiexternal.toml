@@ -13,6 +13,14 @@
   url = "https://gist.githubusercontent.com/agyild/82219c545228d70c5604f865ce0b0ce5/raw/FSR.glsl"
   refreshPeriod = "168h"
 
+## mpv fonts
+# gandhi sans for sub
+[".config/mpv/fonts"]
+  type = "archive"
+  url = "https://www.fontsquirrel.com/fonts/download/gandhi-sans"
+  include = ["*.otf"]
+  refreshPeriod = "168h"
+
 ## mpv scripts
 # uosc, feature-rich osc/ui
 [".config/mpv"]
