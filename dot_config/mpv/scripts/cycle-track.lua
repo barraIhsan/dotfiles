@@ -93,10 +93,6 @@ local function cycle(type)
       populate_list()
     end
 
-    for key, value in pairs(sub["list"]) do
-      print(key, value)
-    end
-
     local list, prop = type["list"], type["prop"]
     if #list > 1 then
       -- increment index and wrap around
