@@ -85,9 +85,14 @@ local function select()
           srate[tid] = srate[tid] - 3
         end
         -- prioritize "honor" or "honour"
-        if string.match(title, "honou?r") then
-          srate[tid] = srate[tid] + 1
+        -- don't include "no honorifics" track
+        if string.match(title, "honou?r") and not string.match(title, "no%shonou?r") then
+          srate[tid] = srate[tid] + 2
         end
+        if string.match(title, "no%shonou?r") then
+          srate[tid] = srate[tid] - 1.5
+        end
+
         -- prioritize ass subtitle
         if track["codec"] == "ass" then
           srate[tid] = srate[tid] + 2
