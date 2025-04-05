@@ -1,3 +1,4 @@
+require("mp")
 -- Inspired by po5's trackselect, hence the name
 -- https://github.com/po5/trackselect/blob/master/trackselect.lua
 -- which in turn, is also inspired by siikamiika's dualaudiofix
@@ -9,10 +10,12 @@
 --
 -- Also select the best english subttiles
 -- avoid "sign" subs (sign and song only, for english audio),
+-- select ass (advanced substation alpha) subtitle if possible
 -- with honorifics (e.g. onii-chan, senpai, nee-sama) if possible,
--- and select ass (advanced substation alpha) subtitle if possible
+-- and with a good subtitle provider (e.g. MTBB) if possible,
 
-require("mp")
+-- highest to lowest ->
+local sprovider = { "mtbb" }
 
 -- return the highest score id
 -- if it's a tie, return the first one found
@@ -71,8 +74,8 @@ local function select()
 
     -- select english sub
     -- avoid "sign" and "s&s"
-    -- prioritize "honor" on sub "title"
-    -- prioritize ass on sub "codec"
+    -- prioritize honorific (e.g. onii-chan, senpai, nee-sama)
+    -- prioritize ass sub
     if track["type"] == "sub" and track["lang"] then
       if string.match(track["lang"], "en.?") then
         -- set initial
@@ -82,8 +85,18 @@ local function select()
 
         -- avoid "sign" and "s&s"
         if string.match(title, "sign") or string.match(title, "s&s") then
-          srate[tid] = srate[tid] - 3
+          srate[tid] = srate[tid] - 7
         end
+
+        -- prioritize good provider
+        -- you can set it on the `sprovider` variable
+        -- on the top of the file
+        for i, p in pairs(sprovider) do
+          if string.match(title, p) then
+            srate[tid] = srate[tid] + (#sprovider - i + 1) / #sprovider
+          end
+        end
+
         -- prioritize "honor" or "honour"
         -- don't include "no honorifics" track
         if string.match(title, "honou?r") and not string.match(title, "no%shonou?r") then
@@ -95,7 +108,7 @@ local function select()
 
         -- prioritize ass subtitle
         if track["codec"] == "ass" then
-          srate[tid] = srate[tid] + 2
+          srate[tid] = srate[tid] + 4
         end
       end
     end
