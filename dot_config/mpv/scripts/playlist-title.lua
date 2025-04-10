@@ -18,4 +18,4 @@ local function title()
   end
 end
 
-mp.register_event("file-loaded", title)
+mp.add_hook("on_load", 50, title)
