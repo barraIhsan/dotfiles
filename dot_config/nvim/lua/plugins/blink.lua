@@ -38,7 +38,6 @@ return {
     signature = {
       enabled = true,
       window = {
-        border = "rounded",
         show_documentation = true,
       },
     },
@@ -59,13 +58,8 @@ return {
         -- show documentation on selecting it
         auto_show = true,
         auto_show_delay_ms = 0,
-        window = {
-          border = "rounded",
-        },
       },
       menu = {
-        border = "rounded",
-
         -- use lspkind
         -- see https://cmp.saghen.dev/recipes.html#nvim-web-devicons-lspkind
         draw = {
