@@ -21,7 +21,7 @@ local sprovider = { "mtbb" }
 -- if it's a tie, return the first one found
 local function highest(rate)
   -- r means result
-  local rid, rscore = 1, 0
+  local rid, rscore = 1, -1
   for id, score in pairs(rate) do
     if score > rscore then
       rid, rscore = id, score
