@@ -19,7 +19,7 @@ local sprovider = { "mtbb" }
 
 -- return the highest score id
 -- if it's a tie, return the first one found
-local function highest(rate)
+local function set_highest(prop, rate)
   -- r means result
   local rid, rscore = 1, nil
   for id, score in pairs(rate) do
@@ -32,7 +32,10 @@ local function highest(rate)
     end
   end
 
-  return rid
+  -- don't re-set prop (aid, sid) if it's the same
+  if tonumber(mp.get_property(prop)) ~= rid then
+    mp.set_property(prop, rid)
+  end
 end
 
 local function select()
@@ -119,8 +122,8 @@ local function select()
   end
 
   -- select audio and sub track
-  mp.set_property("aid", highest(arate))
-  mp.set_property("sid", highest(srate))
+  set_highest("aid", arate)
+  set_highest("sid", srate)
 end
 
 mp.register_event("file-loaded", select)
