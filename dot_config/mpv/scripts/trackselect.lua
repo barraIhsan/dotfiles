@@ -32,10 +32,7 @@ local function set_highest(prop, rate)
     end
   end
 
-  -- don't re-set prop (aid, sid) if it's the same
-  if tonumber(mp.get_property(prop)) ~= rid then
-    mp.set_property(prop, rid)
-  end
+  mp.set_property(prop, rid)
 end
 
 local function select()
@@ -126,4 +123,4 @@ local function select()
   set_highest("sid", srate)
 end
 
-mp.register_event("file-loaded", select)
+mp.add_hook("on_preloaded", 50, select)
