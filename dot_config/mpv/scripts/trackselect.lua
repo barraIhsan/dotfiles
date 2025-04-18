@@ -32,7 +32,9 @@ local function set_highest(prop, rate)
     end
   end
 
-  mp.set_property(prop, rid)
+  if rid then
+    mp.set_property(prop, rid)
+  end
 end
 
 local function select()
