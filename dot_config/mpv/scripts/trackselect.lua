@@ -21,10 +21,10 @@ local sprovider = { "mtbb" }
 -- if it's a tie, return the first one found
 local function set_highest(prop, rate)
   -- r means result
-  local rid, rscore = 1, nil
+  local rid, rscore
   for id, score in pairs(rate) do
-    -- set rscore to be the first score
-    rscore = rscore or score
+    -- set result to be the first item in table
+    rid, rscore = rid or id, rscore or score
 
     -- find the highest one
     if score > rscore then
