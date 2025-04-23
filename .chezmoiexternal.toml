@@ -2,7 +2,7 @@
 # anime4k shaders
 [".config/mpv/shaders"]
   type = "archive"
-  url = "https://github.com/Tama47/Anime4K/releases/latest/download/GLSL_Mac_Linux_High-end.zip"
+  url = "https://github.com/Tama47/Anime4K/releases/latest/download/GLSL_Windows_High-end.zip"
   refreshPeriod = "168h"
   include = ["shaders/**"]
   stripComponents = 1
@@ -25,11 +25,6 @@
 [".config/mpv"]
   type = "archive"
   url = "https://github.com/tomasklaen/uosc/releases/latest/download/uosc.zip"
-  refreshPeriod = "168h"
-# mpris support
-[".config/mpv/scripts/mpris.so"]
-  type = "file"
-  url = "https://github.com/eNV25/mpv-mpris2/releases/latest/download/mpris-x86_64-unknown-linux-gnu.so"
   refreshPeriod = "168h"
 # sponsorblock
 [".config/mpv/scripts/sponsorblock_minimal.lua"]
