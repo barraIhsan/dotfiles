@@ -4,7 +4,7 @@ This is my mpv config for Windows and it has many QOL scripts out of the box. It
 
 ## Install external scripts and shaders
 
-I wrote the script in `.sh` shell script that can be executed in \*nix system like Mac and GNU/Linux. Fortunately, you can run shell script by using Git Bash or the other similar approach (e.g MSYS2 or Cygwin)
+I wrote the script in `.sh` shell script that can be executed in \*nix system like Mac and GNU/Linux. Fortunately, you can run shell script on Windows by using Git Bash or the other similar approach (e.g MSYS2 or Cygwin)
 
 To use Git Bash:
 
