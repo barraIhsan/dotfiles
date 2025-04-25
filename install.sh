@@ -18,7 +18,11 @@ fi
 unarchive() {
   echo -e "Unarchiving ${GREEN}$1${RESET}"
   if [ $archiver == "unzip" ]; then
-    unzip -o "$2" "$3" -d "$4" >/dev/null
+    if [ $3 == "*" ]; then
+      unzip -o "$2" -d "$4" >/dev/null
+    else
+      unzip -o "$2" "$3" -d "$4" >/dev/null
+    fi
   elif [ $archiver == "7z" ]; then
     7z -y x "$2" "$3" -o"$4" >/dev/null
   fi
