@@ -40,7 +40,7 @@ I wrote the script in `.sh` shell script that can be executed in \*nix system li
 
 1. Install `git` if you haven't installed it yet. You can install it manually (using setup exe's), or you can use package manager like `choco` (`choco install git`), and `winget` (`winget install git`).
 2. Once that installed, you should be able to run the `install.sh` script with Git bash (try searching it on the `Open with` dialog)
-3. Or you can type `bash ~/AppData/Roaming/mpv/install.sh`
+3. Or you can type `bash ~/AppData/Roaming/mpv/install.sh` in Git Bash
 
 **If you didn't have `mpv` installed, you can follow these instruction**:
 
