@@ -2,14 +2,45 @@
 
 This is my mpv config for Windows and it has many QOL scripts out of the box. It uses [uosc](https://github.com/tomasklaen/uosc) by default for the ui.
 
-## Install external scripts and shaders
+## 1. Clone/Download the files
+
+You can clone this repo using git or manually downloading the zip file provided by GitHub
+
+### a. Clone using git
+
+First thing first, clone this branch to the mpv config directory (it's `~/AppData/Roaming/mpv` on Windows by default)
+
+**In Command Prompt**:
+
+```bash
+git clone https://github.com/barraIhsan/dotfiles -b mpv-windows %appdata%/mpv
+```
+
+**In PowerShell**:
+
+```bash
+git clone https://github.com/barraIhsan/dotfiles -b mpv-windows $env:appdata/mpv
+```
+
+**In Git Bash**:
+
+```bash
+git clone https://github.com/barraIhsan/dotfiles -b mpv-windows ~/AppData/Roaming/mpv
+```
+
+### b. Manually download the zip file
+
+Click the green `Code` button and click `Download ZIP` and you can extract it to `%appdata%` and rename the folder from `dotfiles-mpv-windows` to `mpv`.
+
+## 2. Running the script
 
 I wrote the script in `.sh` shell script that can be executed in \*nix system like Mac and GNU/Linux. Fortunately, you can run shell script on Windows by using Git Bash or the other similar approach (e.g MSYS2 or Cygwin)
 
-**To use Git Bash**:
+**To run the script**:
 
 1. Install `git` if you haven't installed it yet. You can install it manually (using setup exe's), or you can use package manager like `choco` (`choco install git`), and `winget` (`winget install git`).
 2. Once that installed, you should be able to run the `install.sh` script with Git bash (try searching it on the `Open with` dialog)
+3. Or you can type `bash ~/AppData/Roaming/mpv/install.sh`
 
 **If you didn't have `mpv` installed, you can follow these instruction**:
 
