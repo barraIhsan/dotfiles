@@ -1,0 +1,8 @@
+# ignore the downloaded files from install.sh
+fonts/
+shaders/
+scripts/
+
+!scripts/cycle-track.lua
+!scripts/trackselect.lua
+!scripts/playlist-title.lua
