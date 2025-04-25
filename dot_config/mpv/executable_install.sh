@@ -58,6 +58,7 @@ download "SponsorBlock" "https://codeberg.org/jouni/mpv_sponsorblock_minimal/raw
 download "ani-skip" "https://raw.githubusercontent.com/synacktraa/ani-skip/master/skip.lua" scripts/ani-skip.lua
 
 # videoclip
+rm -rf scripts/videoclip
 download "videoclip" "https://github.com/Ajatt-Tools/videoclip/archive/refs/heads/master.zip" scripts/videoclip.zip
 unarchive "videoclip" scripts/videoclip.zip "**/*.lua" scripts
 mv scripts/videoclip-master scripts/videoclip
