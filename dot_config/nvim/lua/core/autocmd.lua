@@ -6,6 +6,16 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
+-- disable double left mouse click on help page to
+-- jump to tag. The same as Ctrl-]. Instead it will
+-- highlight current word like in any filetype.
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "help",
+  callback = function()
+    vim.keymap.set("n", "<2-LeftMouse>", "viw", { buffer = true, noremap = true })
+  end,
+})
+
 -- apply chezmoi changes when saving a file
 vim.api.nvim_create_autocmd("BufWritePost", {
   desc = "Apply chezmoi changes after saving any file in the ~/.local/share/chezmoi directory",
