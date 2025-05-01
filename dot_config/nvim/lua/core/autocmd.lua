@@ -20,7 +20,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = vim.fn.expand("~") .. "/.local/share/chezmoi/*",
   callback = function()
-    vim.system("chezmoi apply --force --source-path " .. vim.fn.expand("%"))
+    vim.system({ "chezmoi", "apply", "--force", "--source-path", vim.fn.expand("%") })
   end,
 })
 
