@@ -5,10 +5,6 @@ return {
   dependencies = {
     -- pictograms
     "onsails/lspkind.nvim",
-
-    -- sources
-    "moyiz/blink-emoji.nvim", -- unicode emoji
-
     -- snippets
     "L3MON4D3/LuaSnip",
   },
@@ -27,12 +23,8 @@ return {
       default = {
         "lsp",
         "snippets",
-        "emoji",
         "buffer",
         "path",
-      },
-      providers = {
-        emoji = { module = "blink-emoji" },
       },
     },
     signature = {
