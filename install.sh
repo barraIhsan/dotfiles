@@ -72,3 +72,6 @@ download "thumbfast" "https://raw.githubusercontent.com/po5/thumbfast/master/thu
 
 # audio visualizer
 download "visualizer" "https://raw.githubusercontent.com/mfcc64/mpv-scripts/master/visualizer.lua" scripts/visualizer.lua
+
+# auto save
+download "autosave" "https://raw.githubusercontent.com/AN3223/dotfiles/master/.config/mpv/scripts/auto-save-state.lua" scripts/autosave.lua
