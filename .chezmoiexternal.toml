@@ -61,9 +61,4 @@
   type = "file"
   url = "https://raw.githubusercontent.com/mfcc64/mpv-scripts/master/visualizer.lua"
   refreshPeriod = "168h"
-# auto save
-[".config/mpv/scripts/autosave.lua"]
-  type = "file"
-  url = "https://raw.githubusercontent.com/AN3223/dotfiles/master/.config/mpv/scripts/auto-save-state.lua"
-  refreshPeriod = "168h"
 
