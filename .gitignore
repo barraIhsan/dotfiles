@@ -2,8 +2,3 @@
 fonts/
 shaders/
 scripts/
-
-!scripts/cycle-track.lua
-!scripts/autosave.lua
-!scripts/trackselect.lua
-!scripts/playlist-title.lua
