@@ -3,7 +3,6 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "williamboman/mason.nvim",
-    { "antosha417/nvim-lsp-file-operations", config = true },
     "b0o/schemastore.nvim",
   },
   config = function()
@@ -74,6 +73,9 @@ return {
     -- enable snippet
     capabilities.textDocument.completion.completionItem.snippetSupport = true
 
+    -- enable inlay hint
+    vim.lsp.inlay_hint.enable(true, { 0 })
+
     -- change diagnostic symbols in the sign column (gutter)
     local x = vim.diagnostic.severity
     vim.diagnostic.config({
@@ -87,80 +89,44 @@ return {
         },
       },
       underline = true,
+
+      -- do the following for lsp diagnostics:
+      -- 1. disable prefix (e.g. number)
+      -- 2. sort from the highest severity
+      -- 3. include the source where the warn/error come from
+      { float = { prefix = "", header = "", severity_sort = true, source = true } },
     })
 
-    -- enable inlay hint
-    vim.lsp.inlay_hint.enable(true, { 0 })
+    -- lsp server config
 
-    -- do the following for lsp diagnostics:
-    -- 1. disable prefix (e.g. number)
-    -- 2. sort from the highest severity
-    -- 3. include the source where the warn/error come from
-    vim.diagnostic.config({ float = { prefix = "", header = "", severity_sort = true, source = true } })
-
-    local lspconfig = require("lspconfig")
-    require("mason-lspconfig").setup_handlers({
-      -- default handler for installed server
-      function(server_name)
-        lspconfig[server_name].setup({
-          capabilities = capabilities,
-        })
-      end,
-      ["html"] = function()
-        -- configure html language server
-        lspconfig["html"].setup({
-          capabilities = capabilities,
-          settings = {
-            html = {
-              format = {
-                wrapLineLength = 0,
-              },
-            },
+    -- html: disable wrap line
+    vim.lsp.config("html", {
+      settings = {
+        html = {
+          format = {
+            wrapLineLength = 0,
           },
-        })
-      end,
-      ["cssls"] = function()
-        -- configure css langauge server (and ignore unknownAtRules)
-        lspconfig["cssls"].setup({
-          capabilities = capabilities,
-          settings = {
-            css = {
-              lint = {
-                unknownAtRules = "ignore",
-              },
-            },
+        },
+      },
+    })
+    -- json: validate using schema and pull from schemastore
+    vim.lsp.config("jsonls", {
+      settings = {
+        json = {
+          schemas = require("schemastore").json.schemas(),
+          validate = { enable = true },
+        },
+      },
+    })
+    -- lua: recognize "vim" and "mp" global
+    vim.lsp.config("lua_ls", {
+      settings = {
+        Lua = {
+          diagnostics = {
+            globals = { "vim", "mp" },
           },
-        })
-      end,
-      ["jsonls"] = function()
-        -- configure json language server (schemastore)
-        lspconfig["jsonls"].setup({
-          capabilities = capabilities,
-          settings = {
-            json = {
-              schemas = require("schemastore").json.schemas(),
-              validate = { enable = true },
-            },
-          },
-        })
-      end,
-      ["lua_ls"] = function()
-        -- configure lua server (with special settings)
-        lspconfig["lua_ls"].setup({
-          capabilities = capabilities,
-          settings = {
-            Lua = {
-              -- make the language server recognize "vim" and "mp" global
-              diagnostics = {
-                globals = { "vim", "mp" },
-              },
-              completion = {
-                callSnippet = "Replace",
-              },
-            },
-          },
-        })
-      end,
+        },
+      },
     })
   end,
 }
