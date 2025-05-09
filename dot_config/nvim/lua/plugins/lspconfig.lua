@@ -94,7 +94,7 @@ return {
       -- 1. disable prefix (e.g. number)
       -- 2. sort from the highest severity
       -- 3. include the source where the warn/error come from
-      { float = { prefix = "", header = "", severity_sort = true, source = true } },
+      float = { prefix = "", header = "", severity_sort = true, source = true },
     })
 
     -- lsp server config
