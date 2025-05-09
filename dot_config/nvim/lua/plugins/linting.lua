@@ -13,5 +13,9 @@ return {
         lint.try_lint()
       end,
     })
+
+    -- call pylint
+    lint.linters.pylint.cmd = "python"
+    lint.linters.pylint.args = { "-m", "pylint", "-f", "json" }
   end,
 }
