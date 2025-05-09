@@ -16,6 +16,27 @@ return {
       return ret
     end
 
+    -- short mode
+    local mode_map = {
+      ["NORMAL"] = "N",
+      ["O-PENDING"] = "N?",
+      ["INSERT"] = "I",
+      ["VISUAL"] = "V",
+      ["V-BLOCK"] = "VB",
+      ["V-LINE"] = "VL",
+      ["V-REPLACE"] = "VR",
+      ["REPLACE"] = "R",
+      ["COMMAND"] = "!",
+      ["SHELL"] = "SH",
+      ["TERMINAL"] = "T",
+      ["EX"] = "X",
+      ["S-BLOCK"] = "SB",
+      ["S-LINE"] = "SL",
+      ["SELECT"] = "S",
+      ["CONFIRM"] = "Y?",
+      ["MORE"] = "M",
+    }
+
     require("lualine").setup({
       options = {
         -- no seperator
@@ -25,7 +46,8 @@ return {
         disabled_filetypes = { "NvimTree", "alpha" },
       },
       sections = {
-        lualine_a = { "mode" },
+        -- stylua: ignore
+        lualine_a = { { "mode", fmt = function(s) return mode_map[s] or s end } },
         lualine_b = { "branch", "diff", "diagnostics" },
         lualine_c = {
           { "filetype", icon_only = true, separator = "", padding = { right = 0, left = 1 } },
