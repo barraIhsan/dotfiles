@@ -4,18 +4,6 @@ return {
     "nvim-tree/nvim-web-devicons",
   },
   config = function()
-    -- Override 'encoding': Don't display if encoding is UTF-8.
-    local function encoding()
-      local ret, _ = (vim.bo.fenc or vim.go.enc):gsub("^utf%-8$", "")
-      return ret
-    end
-
-    -- fileformat: Don't display if &ff is unix.
-    local function fileformat()
-      local ret, _ = vim.bo.fileformat:gsub("^unix$", "")
-      return ret
-    end
-
     -- short mode
     local mode_map = {
       ["NORMAL"] = "N",
@@ -39,22 +27,27 @@ return {
 
     require("lualine").setup({
       options = {
-        -- no seperator
+        -- no section seperator
+        -- and pipe as component seperator
         component_separators = "|",
         section_separators = "",
-        -- disable lualine at file explorer pane
+        -- disable lualine at file explorer pane, and homepage
         disabled_filetypes = { "NvimTree", "alpha" },
       },
       sections = {
-        -- stylua: ignore
+        -- stylua: ignore start
         lualine_a = { { "mode", fmt = function(s) return mode_map[s] or s end } },
         lualine_b = { "branch", "diff", "diagnostics" },
         lualine_c = {
           { "filetype", icon_only = true, separator = "", padding = { right = 0, left = 1 } },
           { "filename", path = 1 },
         },
-        lualine_x = { encoding, fileformat },
+        lualine_x = {
+          { "encoding", fmt = function (s) return s ~= "utf-8" and s end },
+          { "fileformat", icons_enabled = false, fmt = function (s) return s ~= "unix" and s end },
+        },
         lualine_y = { "location" },
+        -- stylua: ignore end
       },
       inactive_sections = {
         lualine_a = {},
