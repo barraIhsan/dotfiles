@@ -21,12 +21,17 @@ keymap.set("n", "<leader>wj", "<C-w>J", { desc = "Move window to far bottom" })
 keymap.set("n", "<leader>wk", "<C-w>K", { desc = "Move window to far top" })
 keymap.set("n", "<leader>wl", "<C-w>L", { desc = "Move window to far left" })
 
+-- tab management
 keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" })
 keymap.set("n", "<leader>tq", "<cmd>tabclose<CR>", { desc = "Close current tab" })
 keymap.set("n", "<A-l>", "<cmd>tabn<CR>", { desc = "Go to next tab" })
 keymap.set("n", "<A-h>", "<cmd>tabp<CR>", { desc = "Go to previous tab" })
 keymap.set("n", "<C-A-l>", "<cmd>+tabm<CR>", { desc = "Move current tab to right" })
 keymap.set("n", "<C-A-h>", "<cmd>-tabm<CR>", { desc = "Move current tab to left" })
+
+-- quickfix navigation
+keymap.set("n", "<A-j>", "<cmd>cnext<CR>", { desc = "Go to the next quickfix entry" })
+keymap.set("n", "<A-k>", "<cmd>cprev<CR>", { desc = "Go to the previous quickfix entry" })
 
 -- set the cursor in the middle when doing ctrl-d ctrl-u
 keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
