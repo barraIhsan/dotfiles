@@ -3,9 +3,7 @@ require("mp")
 -- https://github.com/AN3223/dotfiles/blob/master/.config/mpv/scripts/auto-save-state.lua
 --
 -- This script will periodically saves watch later after
--- - 60 second / 1 minute
--- - pausing the file
--- - playing the next file on playlist
+-- 60 second / 1 minute or when the user pause the video
 -- ONLY IF `save-position-on-quit` and `resume-playback` are true.
 
 if mp.get_property_bool("save-position-on-quit") and mp.get_property_bool("resume-playback") then
