@@ -24,12 +24,5 @@ if mp.get_property_bool("save-position-on-quit") and mp.get_property_bool("resum
     end
   end
 
-  local function save_file()
-    if mp.get_property_number("playlist-pos") ~= 0 then
-      save()
-    end
-  end
-
-  mp.register_event("file-loaded", save_file)
   mp.observe_property("pause", "bool", pause)
 end
