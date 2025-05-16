@@ -1,8 +1,7 @@
 return {
-  "williamboman/mason.nvim",
-  dependencies = { "williamboman/mason-lspconfig.nvim", "WhoIsSethDaniel/mason-tool-installer.nvim" },
-  config = function()
-    require("mason").setup({
+  {
+    "williamboman/mason.nvim",
+    opts = {
       ui = {
         icons = {
           package_installed = "✓",
@@ -10,9 +9,12 @@ return {
           package_uninstalled = "✗",
         },
       },
-    })
-
-    require("mason-lspconfig").setup({
+    },
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    dependencies = { "williamboman/mason.nvim" },
+    opts = {
       -- list of lsp for mason to install
       ensure_installed = {
         "html",
@@ -31,9 +33,12 @@ return {
         "bashls",
         "mdx_analyzer",
       },
-    })
-
-    require("mason-tool-installer").setup({
+    },
+  },
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    dependencies = { "williamboman/mason.nvim" },
+    opts = {
       -- list of formatter and linter for mason to install
       ensure_installed = {
         "prettierd", -- prettierd formatter
@@ -43,6 +48,6 @@ return {
         "pylint", -- python linter
         "shfmt", -- sh formatter with bash support
       },
-    })
-  end,
+    },
+  },
 }
