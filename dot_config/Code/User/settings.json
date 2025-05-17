@@ -1,0 +1,96 @@
+{
+  // vscode setting to mimick my basic neovim navigation
+  // never thought of using vscode *again*
+  // this config exists just in case if i ever *have* to use it
+
+  // color theme & ui
+  // set color theme and icon theme to catppuccin
+  "workbench.colorTheme": "Catppuccin Mocha",
+  "workbench.iconTheme": "catppuccin-mocha",
+  // set font to jetbrains mono
+  "editor.fontFamily": "JetBrainsMono Nerd Font",
+  "editor.fontLigatures": true,
+  // set default formatter to prettier
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // relative number
+  "editor.lineNumbers": "relative",
+  // set tab size to 2
+  "editor.tabSize": 2,
+  // word wrap
+  "editor.wordWrap": "on",
+  // disable trust thingy
+  "security.workspace.trust.enabled": false,
+  // disable tips and minimap
+  "workbench.tips.enabled": false,
+  "editor.minimap.enabled": false,
+  // only enable breadcumb for full path with no icon
+  "breadcrumbs.enabled": true,
+  "breadcrumbs.symbolPath": "off",
+  "breadcrumbs.icons": false,
+  // remove most of the thing on topbar
+  "chat.commandCenter.enabled": false,
+  "window.menuBarVisibility": "compact",
+  "window.commandCenter": false,
+  "workbench.layoutControl.enabled": false,
+  // compact tabs
+  "window.density.editorTabHeight": "compact",
+  // dont restore tabs
+  "window.restoreWindows": "none",
+  // hide scrollbar
+  // for some reason if the size is not set to 0
+  // it will leave some gaps
+  "editor.scrollbar.vertical": "hidden",
+  "editor.scrollbar.verticalScrollbarSize": 0,
+
+  // sidebar and file explorer
+  // move sidebar to the right
+  "workbench.sideBar.location": "right",
+  // disable sticky scroll
+  "workbench.tree.enableStickyScroll": false,
+  // disable compact directory
+  "explorer.compactFolders": false,
+  // put the actionbar to the top
+  "workbench.activityBar.location": "top",
+
+  // vscodevim
+  // leader
+  "vim.leader": " ",
+  // hlsearch
+  "vim.hlsearch": true,
+  // highlight yank
+  "vim.highlightedyank.enable": true,
+  // use ctrl-b to toggle sidebar
+  "vim.handleKeys": {
+    "<C-b>": false
+  },
+  // normal keybind
+  "vim.normalModeKeyBindings": [
+    // for some reason <C-[> is no the same thing as esc for keybind
+    {
+      "before": ["<C-[>"],
+      "after": ["<Esc>"]
+    },
+    // remove highlight search when esc
+    {
+      "before": ["<Esc>"],
+      "commands": [":nohl"]
+    },
+    // open file switcher using <leader>ff mimicking telescope
+    {
+      "before": ["<leader>","f", "f"],
+      "commands": ["workbench.action.quickOpen"]
+    }
+  ],
+  // normal non recursive keybind
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // center the screen when doing ctrl-u and ctrl-d
+    {
+      "before": ["<C-d>"],
+      "after": ["<C-d>", "z", "z"]
+    },
+    {
+      "before": ["<C-u>"],
+      "after": ["<C-u>", "z", "z"]
+    }
+  ]
+}
