@@ -11,7 +11,8 @@ return {
     require("telescope").setup({
       defaults = {
         file_ignore_patterns = {
-          ".git/",
+          "%.git/",
+          "%.venv/",
           "node_modules/",
           "yarn%.lock",
           "pnpm%-lock%.yaml",
