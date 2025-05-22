@@ -109,6 +109,16 @@ return {
         },
       },
     })
+    -- css: ignore unknown rules
+    vim.lsp.config("cssls", {
+      settings = {
+        css = {
+          lint = {
+            unknownAtRules = "ignore",
+          },
+        },
+      },
+    })
     -- json: validate using schema and pull from schemastore
     vim.lsp.config("jsonls", {
       settings = {
