@@ -7,6 +7,7 @@ return {
         lua = { "stylua" },
         rust = { "rustfmt" },
         python = { "isort", "black" },
+        html = { "prettierd" },
         astro = { "prettierd", lsp_format = "fallback" },
         javascript = { "prettierd" },
         typescript = { "prettierd" },
@@ -20,8 +21,6 @@ return {
         yaml = { "yq" },
         sh = { "shfmt" },
         dart = { "dart_format" },
-        -- use lsp's formatting for html
-        html = { lsp_format = "prefer" },
       },
       format_on_save = {
         timeout_ms = 500,
