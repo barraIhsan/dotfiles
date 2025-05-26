@@ -40,6 +40,10 @@ return {
         show_documentation = true,
       },
     },
+    cmdline = {
+      -- disable completion on cmdline `:`
+      enabled = false,
+    },
     completion = {
       list = {
         selection = {
