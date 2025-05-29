@@ -5,7 +5,7 @@ return {
   dependencies = { "nvim-treesitter/nvim-treesitter-textobjects", "windwp/nvim-ts-autotag" },
   config = function()
     -- auto close and auto rename html tags
-    require("nvim-ts-autotag").setup({})
+    require("nvim-ts-autotag").setup()
     -- treesitter
     require("nvim-treesitter.configs").setup({
       highlight = { enable = true },
@@ -33,6 +33,10 @@ return {
         "c",
         "rust",
       },
+      sync_install = true,
+      ignore_install = {},
+      modules = {},
+      incremental_selection = { enable = false },
     })
   end,
 }
