@@ -34,6 +34,9 @@ export MANPAGER="nvim +Man!"
 # enabling memory segments
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 
+# chromium as chrome
+export CHROME_EXECUTABLE=chromium
+
 # ---------------------------------------------------------------------
 
 # Clean home dir from dotfiles
