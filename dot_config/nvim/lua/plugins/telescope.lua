@@ -14,6 +14,7 @@ return {
           "%.git/",
           "%.venv/",
           "node_modules/",
+          "__pycache__/",
           "yarn%.lock",
           "pnpm%-lock%.yaml",
           "package%-lock%.json",

@@ -61,9 +61,7 @@ return {
         },
       },
       filters = {
-        -- hide .git directory
-        -- and node_modules
-        custom = { "^\\.git$", "^\\.venv$", "^node_modules$" },
+        custom = { "^\\.git$", "^\\.venv$", "^node_modules$", "^__pycache__$" },
         -- show file even if the file is ignored by git
         git_ignored = false,
       },
