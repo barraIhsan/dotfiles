@@ -17,6 +17,7 @@ typeset -U path PATH # prevent duplicate
 path+=~/.local/bin
 path+=$CARGO_HOME/bin
 path+=$FVM_CACHE_PATH/default/bin
+path+=$(gem env user_gemhome)/bin
 
 export PATH
 
