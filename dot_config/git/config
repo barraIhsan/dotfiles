@@ -4,6 +4,8 @@
 	signingkey = FF7D51EFEC75A00B
 [includeIf "hasconfig:remote.*.url:git@gitlab.com:*/**"]
   path = ~/.config/git/gitlab
+[includeIf "hasconfig:remote.*.url:git@codeberg.org:*/**"]
+  path = ~/.config/git/codeberg
 [commit]
 	gpgsign = true
 [core]

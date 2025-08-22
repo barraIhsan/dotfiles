@@ -1,0 +1,6 @@
+[user]
+	email = barra@noreply.codeberg.org
+	name = barra
+	signingkey = D4FE3EB8FBE28215
+
+# vim: filetype=gitconfig syntax=gitconfig
