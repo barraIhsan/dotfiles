@@ -5,11 +5,11 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
--- disable double left mouse click on help page to
+-- disable double left mouse click on help and man page to
 -- jump to tag. The same as Ctrl-]. Instead it will
 -- highlight current word like in any filetype.
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "help",
+  pattern = { "help", "man" },
   callback = function()
     vim.keymap.set("n", "<2-LeftMouse>", "viw", { buffer = true, noremap = true })
   end,
