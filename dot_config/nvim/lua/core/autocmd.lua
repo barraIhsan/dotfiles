@@ -17,7 +17,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- apply chezmoi changes when saving a file
 vim.api.nvim_create_autocmd("BufWritePost", {
-  pattern = vim.fn.expand("~") .. "/.local/share/chezmoi/*",
+  pattern = vim.fn.expand("$XDG_DATA_HOME") .. "/chezmoi/*",
   callback = function()
     vim.system({ "chezmoi", "apply", "--force", "--source-path", vim.fn.expand("%") })
   end,
