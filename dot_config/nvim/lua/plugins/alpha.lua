@@ -24,7 +24,7 @@ return {
       dashboard.button("SPC ee", "  Toggle file explorer", "<cmd>NvimTreeToggle<CR>"),
       dashboard.button("SPC ff", "󰈞  Find files", "<cmd>Telescope find_files<CR>"),
       dashboard.button("SPC fg", "  Find by grep", "<cmd>Telescope live_grep<CR>"),
-      dashboard.button("SPC wr", "󰁯  Restore session for cwd", "<cmd>SessionRestore<CR>"),
+      dashboard.button("SPC wr", "󰁯  Restore session for cwd", "<cmd>AutoSession restore<CR>"),
       dashboard.button("q", "󰅙  Quit Neovim", "<cmd>qa<CR>"),
     }
 
