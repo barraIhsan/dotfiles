@@ -8,10 +8,12 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- disable double left mouse click on help and man page to
 -- jump to tag. The same as Ctrl-]. Instead it will
 -- highlight current word like in any filetype.
+-- and quit with q directly
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "help", "man" },
   callback = function()
     vim.keymap.set("n", "<2-LeftMouse>", "viw", { buffer = true, noremap = true })
+    vim.keymap.set("n", "q", "<cmd>quit<CR>", { buffer = true, noremap = true })
   end,
 })
 
