@@ -47,3 +47,14 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.signcolumn = "no"
   end,
 })
+
+-- auto insert mode on terminal pane
+-- q to exit and Esc to go to normal mode
+vim.api.nvim_create_autocmd("TermOpen", {
+  pattern = "*",
+  callback = function()
+    vim.cmd("startinsert")
+    vim.keymap.set("n", "q", "<cmd>quit<CR>", { buffer = true })
+    vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { buffer = true })
+  end,
+})
