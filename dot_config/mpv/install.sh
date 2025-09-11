@@ -71,3 +71,6 @@ download "thumbfast" "https://raw.githubusercontent.com/po5/thumbfast/master/thu
 
 # audio visualizer
 download "visualizer" "https://raw.githubusercontent.com/mfcc64/mpv-scripts/master/visualizer.lua" scripts/visualizer.lua
+
+# hold space for 2x speed
+download "hold_speed" "https://raw.githubusercontent.com/AzuredBlue/hold-speed/refs/heads/main/hold_speed.lua" scripts/hold_speed.lua

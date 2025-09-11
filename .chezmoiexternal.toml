@@ -61,4 +61,8 @@
   type = "file"
   url = "https://raw.githubusercontent.com/mfcc64/mpv-scripts/master/visualizer.lua"
   refreshPeriod = "168h"
-
+# hold space to set 2x speed
+[".config/mpv/scripts/hold_speed.lua"]
+  type = "file"
+  url = "https://raw.githubusercontent.com/AzuredBlue/hold-speed/refs/heads/main/hold_speed.lua"
+  refreshPeriod = "168h"
