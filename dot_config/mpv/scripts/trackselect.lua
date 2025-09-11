@@ -19,7 +19,7 @@ local sprovider = { "mtbb" }
 
 -- return the highest score id
 -- if it's a tie, return the first one found
-local function set_highest(prop, rate)
+local function set_highest(prop, rate, tag)
   -- r means result
   local rid, rscore
   for id, score in pairs(rate) do
@@ -29,6 +29,16 @@ local function set_highest(prop, rate)
     -- find the highest one
     if score > rscore then
       rid, rscore = id, score
+    end
+
+    -- prioritize track with tag if scores are tied
+    -- forced > default
+    if score == rscore and id ~= rid and tag then
+      if id == tag["forced"] then
+        rid, rscore = id, score
+      elseif id == tag["default"] and rid ~= tag["forced"] then
+        rid, rscore = id, score
+      end
     end
   end
 
@@ -41,6 +51,7 @@ local function select()
   -- a and s means audio and s respectively
   local arate = {}
   local srate = {}
+  local tag = { a = {}, s = {} }
 
   -- list audio codec from best
   local codec = { _count = 5, flac = 5, eac3 = 4, opus = 3, aac = 2, mp3 = 1 }
@@ -54,6 +65,14 @@ local function select()
     -- select the best one
     if track["type"] == "audio" and track["lang"] then
       if track["lang"] == "ja" or string.match(track["lang"], "jpn?") then
+        -- add additional tag track to table if found
+        if track["forced"] then
+          tag["a"]["forced"] = tid
+        end
+        if track["default"] then
+          tag["a"]["default"] = tid
+        end
+
         -- set initial
         arate[tid] = 0
 
@@ -84,6 +103,14 @@ local function select()
     -- prioritize ass sub
     if track["type"] == "sub" and track["lang"] then
       if string.match(track["lang"], "en.?") then
+        -- add additional tag track to table if found
+        if track["forced"] then
+          tag["s"]["forced"] = tid
+        end
+        if track["default"] then
+          tag["s"]["default"] = tid
+        end
+
         -- set initial
         srate[tid] = 0
         -- title
@@ -121,8 +148,8 @@ local function select()
   end
 
   -- select audio and sub track
-  set_highest("aid", arate)
-  set_highest("sid", srate)
+  set_highest("aid", arate, tag["a"])
+  set_highest("sid", srate, tag["s"])
 end
 
 mp.add_hook("on_preloaded", 50, select)
