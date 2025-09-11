@@ -25,6 +25,9 @@ opt.winborder = "rounded"
 -- disable built-in status line
 opt.showmode = false
 
+-- disable mosue right click menu
+opt.mousemodel = "extend"
+
 -- show where is our cursor currently in
 opt.cursorline = true
 
