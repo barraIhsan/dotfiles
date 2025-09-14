@@ -15,3 +15,7 @@ symbol = " "
 style = "bold red"
 format = "[$status]($style)"
 disabled = false
+
+[directory]
+format = "[$path]($style) [$read_only]($read_only_style)"
+read_only = ""
