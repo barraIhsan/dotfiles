@@ -69,4 +69,4 @@ export PUB_CACHE=$XDG_CACHE_HOME/pub
 export PYTHON_HISTORY=$XDG_STATE_HOME/python_history
 
 # ---------------------------------------------------------------------
-# vim: filetype=sh syntax=sh
+# vim: filetype=sh

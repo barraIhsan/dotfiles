@@ -17,4 +17,4 @@
 [pull]
   rebase = true
 
-# vim: filetype=gitconfig syntax=gitconfig
+# vim: filetype=gitconfig

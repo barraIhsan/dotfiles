@@ -92,4 +92,4 @@ zinit snippet OMZP::sudo
 zinit cdreplay -q
 
 # ---------------------------------------------------------------------
-# vim: filetype=sh syntax=sh
+# vim: filetype=sh
