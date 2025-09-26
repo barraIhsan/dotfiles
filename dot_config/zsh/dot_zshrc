@@ -47,6 +47,7 @@ alias ll="ls -la"
 alias cat="bat"
 alias lg="lazygit"
 alias youtube-dl="yt-dlp"
+alias npm="pnpm"
 # Preserve extended attribute
 alias cp="cp -a"
 alias rsync="rsync -X"
