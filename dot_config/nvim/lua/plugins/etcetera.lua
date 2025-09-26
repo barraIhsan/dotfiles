@@ -21,6 +21,7 @@ return {
   -- bufferline
   {
     "akinsho/bufferline.nvim",
+    event = "VeryLazy",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     version = "*",
     opts = {
@@ -40,11 +41,13 @@ return {
   -- notification
   {
     "j-hui/fidget.nvim",
+    event = { "BufReadPre", "BufNewFile" },
     opts = {},
   },
   -- discord rpc
   {
     "vyfor/cord.nvim",
+    event = "VeryLazy",
     build = ":Cord update",
     opts = {
       display = {
@@ -55,5 +58,6 @@ return {
   -- naviate between nvim split and tmux pane
   {
     "christoomey/vim-tmux-navigator",
+    event = "VeryLazy",
   },
 }

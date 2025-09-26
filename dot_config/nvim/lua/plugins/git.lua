@@ -1,10 +1,32 @@
 return {
   {
     "NeogitOrg/neogit",
+    cmd = {
+      "Neogit",
+      "NeogitCommit",
+      "NeogitLogCurrent",
+      "NeogitResetState",
+    },
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "sindrets/diffview.nvim",
+      {
+        "sindrets/diffview.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        opts = {
+          view = {
+            merge_tool = {
+              layout = "diff1_plain",
+            },
+          },
+        },
+      },
       "nvim-telescope/telescope.nvim",
+      -- visualize merge conflict marker
+      {
+        "akinsho/git-conflict.nvim",
+        version = "*",
+        opts = {},
+      },
     },
     config = true,
   },
@@ -57,39 +79,5 @@ return {
         map({ "o", "x" }, "ih", "<cmd><C-U>Gitsigns select_hunk<CR>", "Gitsigns select hunk")
       end,
     },
-  },
-  {
-    "sindrets/diffview.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {
-      view = {
-        merge_tool = {
-          layout = "diff1_plain",
-        },
-      },
-    },
-  },
-  -- visualize merge conflict marker
-  {
-    "akinsho/git-conflict.nvim",
-    version = "*",
-    opts = {},
-  },
-  -- trying to migrate to neogit, still keeping these
-  -- 2 plugin for some time.. to get used to neogit
-  {
-    "tpope/vim-fugitive",
-  },
-  {
-    "kdheepak/lazygit.nvim",
-    cmd = {
-      "LazyGit",
-      "LazyGitConfig",
-      "LazyGitCurrentFile",
-      "LazyGitFilter",
-      "LazyGitFilterCurrentFile",
-    },
-    dependencies = { "nvim-lua/plenary.nvim" },
-    keys = { { "<leader>lg", "<cmd>LazyGit<CR>", desc = "Open LazyGit" } },
   },
 }

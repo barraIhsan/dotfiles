@@ -9,7 +9,6 @@ return {
   {
     "mrcjkb/rustaceanvim",
     version = "^5",
-    lazy = false,
     ft = "rust",
   },
   -- manage rust crates
@@ -28,7 +27,7 @@ return {
   -- flutter goodies
   {
     "nvim-flutter/flutter-tools.nvim",
-    lazy = false,
+    ft = "dart",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "stevearc/dressing.nvim",
@@ -40,12 +39,12 @@ return {
   -- latex
   {
     "lervag/vimtex",
-    lazy = false,
     ft = "tex",
   },
   -- mdx support
   {
     "davidmh/mdx.nvim",
+    ft = "mdx",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     opts = {},
   },
@@ -53,6 +52,7 @@ return {
   {
     "luckasRanarison/tailwind-tools.nvim",
     build = ":UpdateRemotePlugins",
+    ft = { "html", "css", "javascriptreact", "typescriptreact" },
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "nvim-telescope/telescope.nvim",

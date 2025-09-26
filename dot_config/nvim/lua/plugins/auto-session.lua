@@ -1,13 +1,12 @@
 return {
   "rmagatti/auto-session",
-  config = function()
-    require("auto-session").setup({
-      auto_restore_enabled = false,
-    })
-
-    local keymap = vim.keymap
-
-    keymap.set("n", "<leader>wr", "<cmd>AutoSession restore<CR>", { desc = "Restore session for cwd" })
-    keymap.set("n", "<leader>ws", "<cmd>AutoSesson save<CR>", { desc = "Save session for auto session root dir" })
-  end,
+  keys = {
+    { "<leader>wr", "<cmd>AutoSession restore<CR>", desc = "Restore session for cwd" },
+  },
+  cmd = {
+    "AutoSession",
+  },
+  opts = {
+    auto_restore = false,
+  },
 }

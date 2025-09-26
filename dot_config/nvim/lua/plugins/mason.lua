@@ -1,6 +1,7 @@
 return {
   {
     "williamboman/mason.nvim",
+    cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonUpdate" },
     opts = {
       ui = {
         icons = {
@@ -14,6 +15,7 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     dependencies = { "williamboman/mason.nvim" },
+    event = { "BufReadPre", "BufNewFile" },
     opts = {
       -- list of lsp for mason to install
       ensure_installed = {
@@ -38,6 +40,7 @@ return {
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     dependencies = { "williamboman/mason.nvim" },
+    event = { "BufReadPre", "BufNewFile" },
     opts = {
       -- list of formatter and linter for mason to install
       ensure_installed = {
