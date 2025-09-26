@@ -6,6 +6,8 @@
   path = ~/.config/git/gitlab
 [includeIf "hasconfig:remote.*.url:git@codeberg.org:*/**"]
   path = ~/.config/git/codeberg
+[includeIf "hasconfig:remote.*.url:git@gitlab.archlinux.org:*/**"]
+  path = ~/.config/git/arch-gitlab
 [commit]
 	gpgsign = true
 [core]

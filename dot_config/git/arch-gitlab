@@ -1,0 +1,6 @@
+[user]
+	email = 5929-barra@users.noreply.gitlab.archlinux.org
+	name = Barra Ihsan
+	signingkey = F72C14F2C1BC9963
+
+# vim: filetype=gitconfig
