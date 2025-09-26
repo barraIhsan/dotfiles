@@ -11,18 +11,6 @@ eval $(grep -E '^XDG_.+_DIR=' $XDG_CONFIG_HOME/user-dirs.dirs | sed 's/^/export 
 
 # ---------------------------------------------------------------------
 
-# Add directory to PATH env
-typeset -U path PATH # prevent duplicate
-
-path+=~/.local/bin
-path+=$CARGO_HOME/bin
-path+=$FVM_CACHE_PATH/default/bin
-path+=$(gem env user_gemhome)/bin
-
-export PATH
-
-# ---------------------------------------------------------------------
-
 # use tty gpg
 export GPG_TTY=$(tty)
 
@@ -67,6 +55,18 @@ export PUB_CACHE=$XDG_CACHE_HOME/pub
 
 # state (XDG_STATE_HOME)
 export PYTHON_HISTORY=$XDG_STATE_HOME/python_history
+
+# ---------------------------------------------------------------------
+
+# Add directory to PATH env
+typeset -U path PATH # prevent duplicate
+
+path=(~/.local/bin $path)
+path+=$CARGO_HOME/bin
+path+=$FVM_CACHE_PATH/default/bin
+path+=$(gem env user_gemhome)/bin
+
+export PATH
 
 # ---------------------------------------------------------------------
 # vim: filetype=sh
