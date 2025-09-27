@@ -38,12 +38,14 @@ eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(fzf --zsh)"
 
-# Aliases
+## Aliases
+# Shortcut
 alias c="clear"
-alias vim="nvim"
 alias v="nvim"
-alias ls="eza --group-directories-first --icons=auto --git -gh"
 alias ll="ls -la"
+# Alternatives
+alias vim="nvim"
+alias ls="eza --group-directories-first --icons=auto --git -gh"
 alias cat="bat"
 alias youtube-dl="yt-dlp"
 alias npm="pnpm"
