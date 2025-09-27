@@ -45,7 +45,6 @@ alias v="nvim"
 alias ls="eza --group-directories-first --icons=auto --git -gh"
 alias ll="ls -la"
 alias cat="bat"
-alias lg="lazygit"
 alias youtube-dl="yt-dlp"
 alias npm="pnpm"
 # Preserve extended attribute
