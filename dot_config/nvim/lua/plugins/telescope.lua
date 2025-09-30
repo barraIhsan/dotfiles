@@ -6,6 +6,18 @@ return {
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     "nvim-tree/nvim-web-devicons",
   },
+  keys = {
+    { "<leader>fh", "<cmd>Telescope help_tags<CR>", desc = "Find help" },
+    { "<leader>fk", "<cmd>Telescope keymaps<CR>", desc = "Find keymaps" },
+    { "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "Find files" },
+    { "<leader>fs", "<cmd>Telescope builtin<CR>", desc = "Find select telescope" },
+    { "<leader>fw", "<cmd>Telescope grep_string<CR>", desc = "Find current word" },
+    { "<leader>fg", "<cmd>Telescope live_grep<CR>", desc = "Find by grep" },
+    { "<leader>fd", "<cmd>Telescope diagnostics<CR>", desc = "Find diagnostics" },
+    { "<leader>ft", "<cmd>TodoTelescope<CR>", desc = "Find todos" },
+    { "<leader>fr", "<cmd>Telescope oldfiles<CR>", desc = "Find recent files" },
+    { "<leader><leader>", "<cmd>Telescope buffers<CR>", desc = "Find existing buffers" },
+  },
   cmd = {
     "Telescope",
   },
@@ -33,21 +45,7 @@ return {
       },
     })
 
+    -- use fzf
     require("telescope").load_extension("fzf")
-
-    -- set keymaps
-    local keymap = vim.keymap
-    local builtin = require("telescope.builtin")
-
-    keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Find help" })
-    keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Find keymaps" })
-    keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
-    keymap.set("n", "<leader>fs", builtin.builtin, { desc = "Find select telescope" })
-    keymap.set("n", "<leader>fw", builtin.grep_string, { desc = "Find current word" })
-    keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Find by grep" })
-    keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Find diagnostics" })
-    keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<CR>", { desc = "Find todos" })
-    keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "Find recent files" })
-    keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "Find existing buffers" })
   end,
 }
