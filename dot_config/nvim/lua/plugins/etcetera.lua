@@ -60,4 +60,6 @@ return {
     "christoomey/vim-tmux-navigator",
     event = "VeryLazy",
   },
+  -- wakatime
+  { "wakatime/vim-wakatime", lazy = false },
 }
