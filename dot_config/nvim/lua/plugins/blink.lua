@@ -54,9 +54,6 @@ return {
           auto_insert = false,
         },
       },
-      ghost_text = {
-        enabled = true,
-      },
       documentation = {
         -- show documentation on selecting it
         auto_show = true,
