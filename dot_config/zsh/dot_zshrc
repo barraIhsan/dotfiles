@@ -52,6 +52,9 @@ alias npm="pnpm"
 # Preserve extended attribute
 alias cp="cp -a"
 alias rsync="rsync -X"
+# Force $HOME dir
+alias adb="HOME=$XDG_DATA_HOME/android adb"
+alias scrcpy="HOME=$XDG_DATA_HOME/android scrcpy"
 
 # Yazi shell wrapper
 function y() {
