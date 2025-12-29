@@ -26,6 +26,9 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 # chromium as chrome
 export CHROME_EXECUTABLE=chromium
 
+# IME on XWayland
+export XMODIFIERS=@im=fcitx
+
 # ---------------------------------------------------------------------
 
 # Clean home dir from dotfiles
