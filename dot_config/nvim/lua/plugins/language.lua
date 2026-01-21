@@ -48,23 +48,6 @@ return {
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     opts = {},
   },
-  -- tailwind inline color, and sort
-  {
-    "luckasRanarison/tailwind-tools.nvim",
-    build = ":UpdateRemotePlugins",
-    ft = { "html", "css", "javascriptreact", "typescriptreact" },
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-telescope/telescope.nvim",
-      "neovim/nvim-lspconfig",
-    },
-    opts = {
-      -- use rounded box for tailwind colors
-      document_color = {
-        inline_symbol = " ",
-      },
-    },
-  },
   -- preview markdown on buffer
   {
     "MeanderingProgrammer/render-markdown.nvim",
