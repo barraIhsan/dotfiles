@@ -1,10 +1,4 @@
 return {
-  -- improve `vim.ui` interfaces
-  {
-    "stevearc/dressing.nvim",
-    event = "BufReadPre",
-    opts = {},
-  },
   -- improve quickfix
   {
     "stevearc/quicker.nvim",
