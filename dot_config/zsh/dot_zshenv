@@ -29,6 +29,9 @@ export CHROME_EXECUTABLE=chromium
 # IME on XWayland
 export XMODIFIERS=@im=fcitx
 
+# Use XDG Portal on GTK apps
+export GTK_USE_PORTAL=1
+
 # ---------------------------------------------------------------------
 
 # Clean home dir from dotfiles
