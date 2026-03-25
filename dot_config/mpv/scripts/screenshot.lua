@@ -14,9 +14,9 @@ local function screenshot(flag)
     if mp.get_property("platform") == "linux" then
       -- copy to clipboard
       if os.getenv("XDG_SESSION_TYPE") == "wayland" then
-        os.execute("wl-copy < " .. filename)
+        os.execute('wl-copy -t text/uri-list "file://' .. filename .. '"')
       else
-        os.execute("xclip -sel c -t image/png -i " .. filename)
+        os.execute('echo "file://' .. filename .. '" | xclip -sel c -t text/uri-list')
       end
 
       -- get the media title or filename without extension
