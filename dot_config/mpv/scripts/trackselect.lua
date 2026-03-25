@@ -8,14 +8,18 @@ require("mp")
 -- stereo if possible, and select the best codec
 -- flac -> eac3 -> opus -> aac -> mp3
 --
--- Also select the best english subttiles
+-- Also try to select the best english subttiles
 -- avoid "sign" subs (sign and song only, for english audio),
 -- select ass (advanced substation alpha) subtitle if possible
 -- with honorifics (e.g. onii-chan, senpai, nee-sama) if possible,
--- and with a good subtitle provider (e.g. MTBB) if possible,
+-- and with a good subtitle provider (e.g. MTBB) if there are many providers
 
 -- highest to lowest ->
 local sprovider = { "mtbb" }
+
+-- prefer forced tag over default tag
+-- sometimes they use `forced` tag for s&s on some release
+local prefer_forced = false
 
 -- return the highest score id
 -- if it's a tie, return the first one found
@@ -32,11 +36,10 @@ local function set_highest(prop, rate, tag)
     end
 
     -- prioritize track with tag if scores are tied
-    -- forced > default
     if score == rscore and id ~= rid and tag then
       if id == tag["forced"] then
         rid, rscore = id, score
-      elseif id == tag["default"] and rid ~= tag["forced"] then
+      elseif id == tag["default"] and rid ~= tag["forced"] and rid ~= tag["default"] then
         rid, rscore = id, score
       end
     end
@@ -66,10 +69,10 @@ local function select()
     if track["type"] == "audio" and track["lang"] then
       if track["lang"] == "ja" or string.match(track["lang"], "jpn?") then
         -- add additional tag track to table if found
-        if track["forced"] then
+        if prefer_forced and track["forced"] and not tag["a"]["forced"] then
           tag["a"]["forced"] = tid
         end
-        if track["default"] then
+        if track["default"] and not tag["a"]["forced"] then
           tag["a"]["default"] = tid
         end
 
@@ -104,10 +107,10 @@ local function select()
     if track["type"] == "sub" and track["lang"] then
       if string.match(track["lang"], "en.?") then
         -- add additional tag track to table if found
-        if track["forced"] then
+        if prefer_forced and track["forced"] and not tag["s"]["forced"] then
           tag["s"]["forced"] = tid
         end
-        if track["default"] then
+        if track["default"] and not tag["s"]["default"] then
           tag["s"]["default"] = tid
         end
 
