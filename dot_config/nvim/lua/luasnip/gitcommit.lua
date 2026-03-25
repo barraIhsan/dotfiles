@@ -19,8 +19,8 @@ return {
   s({ trig = "test", desc = "Add or update tests" }, t("test: ")),
   s({ trig = "build", desc = "Modify build tools or dependencies" }, t("build: ")),
   s({ trig = "chore", desc = "Routine maintenance like updating .gitignore or dependencies" }, t("chore: ")),
-  s({ trig = "ci", desc = "CI/CD pipelines changes" }, t("chore: ")),
-  s({ trig = "revert", desc = "Revert a previous commit" }, t("chore: ")),
+  s({ trig = "ci", desc = "CI/CD pipelines changes" }, t("ci: ")),
+  s({ trig = "revert", desc = "Revert a previous commit" }, t("revert: ")),
   -- trailer
   s(
     { trig = "breaking", desc = "Indicates a breaking API changes\nUse `!` before `:` in the summary\nIf `!` is used, `BREAKING CHANGE: ` in the footer is optional" },
