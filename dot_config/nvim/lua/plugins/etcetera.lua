@@ -47,6 +47,9 @@ return {
       display = {
         theme = "catppuccin",
       },
+      idle = {
+        show_status = false,
+      },
     },
   },
   -- naviate between nvim split and tmux pane
