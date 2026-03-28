@@ -1,0 +1,13 @@
+#!/usr/bin/env chezmoi_modify_manager
+
+source auto
+
+ignore section regex "^Color"
+ignore "General" "ColorSchemeHash"
+ignore section "KScreen"
+ignore section "WM"
+ignore section "Shortcuts"
+ignore section "PreviewSettings"
+ignore section "KShortcutsDialog Settings"
+
+# vim: filetype=sh

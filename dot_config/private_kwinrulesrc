@@ -1,0 +1,48 @@
+[20fc9ab9-9e2c-4146-a1bd-053a19c7a7a0]
+Description=Kitty hide titlebar when maximized
+noborder=true
+noborderrule=3
+wmclass=kitty
+wmclassmatch=1
+
+[645977d5-7cc1-43c7-b414-a9e457c51d93]
+Description=Small Google Translate Window
+ignoregeometry=true
+ignoregeometryrule=3
+position=0,143
+positionrule=3
+size=483,810
+sizerule=3
+title=Google Translate
+titlematch=1
+wmclass=FFPWA-01JG1QHBC9DV656C82E1E1YAMW
+wmclassmatch=1
+
+[8a7dfbbc-cb9a-4e6a-8f3f-70d4eefdd3f3]
+Description=DaVinci Resolve main window always with titlebar and frame
+noborderrule=2
+types=1
+wmclass=resolve
+wmclassmatch=1
+
+[General]
+count=4
+rules=645977d5-7cc1-43c7-b414-a9e457c51d93,8a7dfbbc-cb9a-4e6a-8f3f-70d4eefdd3f3,cbf0220e-8d37-49c2-81ee-daeecc9655b3,20fc9ab9-9e2c-4146-a1bd-053a19c7a7a0
+
+[c435626a-19b0-460c-9b7b-523400d9d572]
+desktopfilerule=2
+
+[cbf0220e-8d37-49c2-81ee-daeecc9655b3]
+Description=Firefox PiP
+Enabled=false
+above=true
+aboverule=3
+skipswitcher=true
+skipswitcherrule=3
+skiptaskbar=true
+skiptaskbarrule=3
+title=Picture-in-Picture
+titlematch=1
+types=1
+wmclass=firefox
+wmclassmatch=1

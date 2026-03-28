@@ -1,0 +1,9 @@
+#!/usr/bin/env chezmoi_modify_manager
+
+source auto
+
+ignore section "Removed Associations"
+ignore regex ".*" "^x-scheme-handler"
+ignore regex ".*" "^application/vnd-.*"
+
+# vim: filetype=sh

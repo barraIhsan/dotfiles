@@ -1,0 +1,9 @@
+#!/usr/bin/env chezmoi_modify_manager
+
+source auto
+
+ignore section "Desktops"
+ignore section "NightColor"
+ignore section regex "Tiling.*"
+
+# vim: filetype=sh

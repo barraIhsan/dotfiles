@@ -2,3 +2,7 @@ LICENSE
 **/README.md
 
 .config/git
+# chezmoi modify manager
+**/*.src.ini
+
+# vim: filetype=gitignore
