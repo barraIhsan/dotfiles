@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+# Original script is made by @mateusauler on GitHub
+# https://github.com/ValveSoftware/steam-for-linux/issues/1890#issuecomment-1693548157
+# Modified it for general use
+#
+# Usage: xdg-fakehome <namespace> <bin> [args...]
+#
+# e.g. xdg-fakehome Steam/fakehome /usr/bin/steam %U
+# on steam's .desktop file
+
+namespace=$1
+bin=$2
+shift 2
+
+export fakeHome=$XDG_DATA_HOME/$namespace
+
+# Symlink a file to the fake home
+link_dir() {
+  # Replace HOME with FAKEHOME in the link name
+  link_name=$(echo $1 | sed "s|^$HOME|$fakeHome|")
+
+  # Creates the link's parent directory and symlinks it
+  mkdir -p $(dirname "$link_name")
+  if [ ! -d "$link_name" ]; then
+    ln -s "$1" "$link_name"
+  fi
+}
+export -f link_dir
+
+# Refresh symlink on fake home
+mkdir -p $fakeHome
+find $fakeHome -maxdepth 1 -type l -delete
+find $HOME -maxdepth 1 | xargs --max-procs=$(nproc) -I{} bash -c 'link_dir "$0"' {}
+
+# Run the program with fakehome set to $HOME
+HOME="$fakeHome" exec "$bin" "$@"
