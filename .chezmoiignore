@@ -1,8 +1,8 @@
 LICENSE
 **/README.md
 
-.config/git
 # chezmoi modify manager
 **/*.src.ini
+**/*.src.json
 
 # vim: filetype=gitignore

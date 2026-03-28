@@ -1,0 +1,95 @@
+/* @import url("https://nspc911.github.io/themes/vencord/RefreshedSeamlessChatBar.theme.css"); */
+/* @import url(https://davart154.github.io/Themes/Snippets/Chat%20Bar%20Context%20Menu/ChatContextMenuSource.css); */
+@import url('https://raw.githubusercontent.com/Krammeth/css-snippets/refs/heads/main/CompactButtons.css');
+
+/* Hide gift and sticker on chat */
+div[role="button"][aria-label="Send a gift"],
+div:has(>div[role="button"][aria-label="Open sticker picker"]) {
+  display: none !important;
+}
+
+/*
+Collapsible Channel List
+https://discord.com/channels/1015060230222131221/1028106818368589824/1391899460736389160
+*/
+.sidebar_c48ade {
+  container-type: size !important;
+  width: var(--custom-guild-sidebar-width) !important;
+}
+
+.density-cozy {
+  --screw-density-sizing: -38px;
+}
+
+.density-default {
+  --screw-density-sizing: -36px;
+}
+
+.density-compact {
+  --screw-density-sizing: -32px;
+}
+
+.guilds_c48ade {
+  position: relative !important;
+  left: var(--screw-density-sizing) !important;
+  height: calc(100vh - var(--custom-app-panels-height) - 8px) !important;
+}
+
+.sidebarList_c48ade {
+  position: relative !important;
+  right: var(--screw-density-sizing) !important;
+}
+
+@container (max-width: 264px) {
+  .sidebarList_c48ade {
+    width: 0px !important;
+    display: none;
+  }
+
+  nav.guilds_c48ade {
+    left: 0px !important;
+  }
+}
+
+@container style(--custom-guild-sidebar-width: 264px) {
+  #app-mount {
+    --custom-guild-sidebar-width: var(--custom-guild-list-width);
+  }
+}
+
+@container style(--custom-guild-sidebar-width: var(--custom-guild-list-width)) {
+  .chat_f75fb0 {
+    border-left: 1px solid var(--app-border-frame) !important;
+    border-top-left-radius: var(--radius-md) !important;
+  }
+
+  .panels_c48ade .buttons__37e49 {
+    display: none;
+  }
+}
+
+/* 
+Sidebar cat
+https://discord.com/channels/1015060230222131221/1028106818368589824/1420603427246833775
+*/
+.user-profile-sidebar::after {
+    /* Discord's color setup */
+    --profile-gradient-start:  color-mix(in oklab, var(--profile-gradient-overlay-color) 100%, var(--profile-gradient-primary-color));
+    --profile-gradient-end:  color-mix(in oklab, var(--profile-gradient-overlay-color) 100%, var(--profile-gradient-secondary-color));
+    /* The cat */
+    content: 
+   "  ╱|、   \a"
+ "  (˚ˎ 。7  \a"
+  "  |、˜〵\  \a"
+"    じしˍ,)ノ";
+
+    white-space: pre;
+    inset: 0;
+    padding: 20px;
+    color: white;
+    /* Also discords */
+    background: linear-gradient(var(--profile-gradient-start), var(--profile-gradient-start) var(--custom-user-profile-banner-height), var(--profile-gradient-end));
+    text-align: center;
+    font-size: 150%;
+}
+/* End sidebar cat */
