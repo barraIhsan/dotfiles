@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-jq --indent 4 -s '.[0] * .[1]' - "$XDG_DATA_HOME/chezmoi/dot_config/Vencord/settings/settings.src.json"

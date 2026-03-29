@@ -1,0 +1,16 @@
+{{- $chezmoiData := deepCopy . -}}
+{{- $chezmoiDiff := $chezmoiData.chezmoi.config.diff }}
+{{- $chezmoiData = unset $chezmoiData "chezmoi" -}}
+
+{{- $sourceDir := joinPath .chezmoi.workingTree "root" -}}
+sourceDir= "{{ $sourceDir }}"
+
+destDir = "/"
+
+verbose= true
+
+[data]
+non_root_user = "{{ .chezmoi.username }}"
+{{ $chezmoiData | toToml }}
+
+# vim: filetype=toml

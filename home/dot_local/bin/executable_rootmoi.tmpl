@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# {{ $configDir := joinPath .chezmoi.homeDir ".config/rootmoi" }}
+# {{ $configFile := joinPath $configDir "chezmoi.toml" }}
+# {{ $persistentStateFile := joinPath $configDir "chezmoistate.boltdb" }}
+# {{ $cacheDir := joinPath .chezmoi.homeDir ".cache/rootmoi" }}
+
+# We remove chezmoi as part of the installation, so this handles it
+if [[ -f '{{ .chezmoi.executable }}' ]]; then
+  executable='{{ .chezmoi.executable }}'
+fi
+
+# Ensure the folders are created, because otherwise they will be created as
+# root, including the ~/.cache and ~/.config, which can cause other programs
+# to stop working.
+# shellcheck disable=SC2016
+mkdir -p '{{ $configDir }}' '{{ $cacheDir }}'
+
+sudo --preserve-env -- \
+  "${executable}" "$@" \
+  --config='{{ $configFile }}' \
+  --persistent-state='{{ $persistentStateFile }}' \
+  --cache='{{ $cacheDir }}'
+
+# vim: filetype=sh
