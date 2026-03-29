@@ -1,0 +1,9 @@
+@import 'colors.css';
+
+/* Breeze GTK weird combobox menu scroll arrow bug at certain font sizes */
+/* https://www.reddit.com/r/kde/comments/1ky6b41/has_anyone_found_a_fix_for_the_gtk_breeze/muuuc2u/ */
+combobox button {
+    min-height: 24px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
