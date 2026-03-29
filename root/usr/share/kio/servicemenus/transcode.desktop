@@ -1,0 +1,21 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=video/*
+Actions=mp4;mp4quality;resolve
+X-KDE-Submenu=Transcode
+
+[Desktop Action mp4]
+Name=Transcode to mp4 (h264/aac)
+Icon=folder-video-symbolic
+Exec=/home/barra/.local/bin/transcode mp4 %F
+
+[Desktop Action mp4quality]
+Name=Transcode to mp4 quality (h264/aac)
+Icon=folder-video-symbolic
+Exec=/home/barra/.local/bin/transcode mp4quality %F
+
+[Desktop Action resolve]
+Name=Transcode to resolve (av1/opus)
+Icon=folder-video-symbolic
+Exec=/home/barra/.local/bin/transcode resolve %F

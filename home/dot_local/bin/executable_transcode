@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+mode=$1
+file=$2
+base=$(basename "$file")
+base="${base%.*}"
+
+# extract metadata from video
+vcodec=$(ffprobe -v quiet -select_streams v:0 -show_entries stream=codec_name -of default=noprint_wrappers=1:nokey=1 "$file")
+acodec=$(ffprobe -v quiet -select_streams a:0 -show_entries stream=codec_name -of default=noprint_wrappers=1:nokey=1 "$file")
+pixfmt=$(ffprobe -v quiet -select_streams v:0 -show_entries stream=pix_fmt -of default=noprint_wrappers=1:nokey=1 "$file")
+duration=$(ffprobe -v quiet -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "$file")
+
+get_hw_encoder() {
+  if ffmpeg -f lavfi -i nullsrc -t 1 -c:v h264_nvenc -f null - &>/dev/null 2>&1; then
+    echo "h264_nvenc" # nvidia
+  elif ffmpeg -f lavfi -i nullsrc -t 1 -c:v h264_amf -f null - &>/dev/null 2>&1; then
+    echo "h264_amf" # amd
+  elif ffmpeg -f lavfi -i nullsrc -t 1 -c:v h264_qsv -f null - &>/dev/null 2>&1; then
+    echo "h264_qsv" # intel
+  else
+    echo "libx264 -preset fast" # cpu with fast preset
+  fi
+}
+
+# https://stackoverflow.com/a/77912933
+hup_handler() {
+  rm -f "${output}"
+  zenity --error --title="Cancelled" --text="Cancelled by user"
+  kill 0
+}
+
+run_ffmpeg() {
+  trap hup_handler HUP
+
+  # add number if file already exist
+  output="${base}-converted.mp4"
+  counter=1
+  while [[ -f "$output" ]]; do
+    output="${base}-converted-${counter}.mp4"
+    ((counter++))
+  done
+
+  ffmpeg -i "$file" -map 0 $vc $ac "${output}" -progress pipe:1 2>/dev/null |
+    awk -F= -v dur="$duration" '/^out_time_ms=/{printf "%d\n", ($2/1000000)/dur*100; fflush()}' |
+    zenity --progress --time-remaining --title="Transcoding ($mode)" --text="$file\n" --percentage=0 --auto-close --auto-kill &
+  wait
+
+  zenity --info --title="Done" --text="Saved as ${output}"
+}
+
+case "$mode" in
+mp4)
+  [[ "$vcodec" == "h264" && "$pixfmt" == "yuv420p" ]] && vc="-c:v copy" || vc="-c:v $(get_hw_encoder) -pix_fmt yuv420p"
+  [[ "$acodec" == "aac" ]] && ac="-c:a copy" || ac="-c:a aac"
+  run_ffmpeg
+  ;;
+mp4quality)
+  [[ "$vcodec" == "h264" && "$pixfmt" == "yuv420p" ]] && vc="-c:v copy" || vc="-c:v libx264 -preset slow -crf 16 -profile:v high -pix_fmt yuv420p"
+  [[ "$acodec" == "aac" ]] && ac="-c:a copy" || ac="-c:a aac -b:a 128k"
+  run_ffmpeg
+  ;;
+resolve)
+  [[ "$vcodec" == "av1" ]] && vc="-c:v copy" || vc="-c:v libsvtav1 -preset 6 -crf 20"
+  [[ "$acodec" == "opus" ]] && ac="-c:a copy" || ac="-c:a libopus"
+  run_ffmpeg
+  ;;
+esac
