@@ -1,0 +1,11 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = discord
+
+[Action]
+Description = Re-patch vencord after discord install/upgrade
+When = PostTransaction
+Depends = vencord-installer-cli-bin
+Exec = /usr/bin/vencordinstallercli -repair -location /opt/discord
