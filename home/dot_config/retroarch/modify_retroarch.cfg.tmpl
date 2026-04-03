@@ -1,0 +1,108 @@
+#!/usr/bin/env chezmoi_modify_manager
+
+source auto
+
+ignore regex ".*" ".*"
+
+# aspect ratio: full
+set "<NO_SECTION>" "aspect_ratio_index" "\"24\""
+
+set "<NO_SECTION>" "cache_directory" "\"/tmp\""
+
+set "<NO_SECTION>" "content_show_add" "\"true\""
+set "<NO_SECTION>" "content_show_add_entry" "\"1\""
+set "<NO_SECTION>" "content_show_contentless_cores" "\"0\""
+set "<NO_SECTION>" "content_show_explore" "\"false\""
+set "<NO_SECTION>" "content_show_favorites" "\"false\""
+set "<NO_SECTION>" "content_show_history" "\"false\""
+set "<NO_SECTION>" "content_show_images" "\"false\""
+set "<NO_SECTION>" "content_show_video" "\"false\""
+
+set "<NO_SECTION>" "discord_allow" "\"true\""
+set "<NO_SECTION>" "fps_show" "\"true\""
+set "<NO_SECTION>" "frontend_log_level" "\"0\""
+
+set "<NO_SECTION>" "input_allow_turbo_dpad" "\"false\""
+set "<NO_SECTION>" "input_close_content_btn" "\"6\""
+set "<NO_SECTION>" "input_driver" "\"sdl2\""
+set "<NO_SECTION>" "input_duty_cycle" "\"3\""
+set "<NO_SECTION>" "input_enable_hotkey_btn" "\"4\""
+set "<NO_SECTION>" "input_exit_emulator" "\"nul\""
+set "<NO_SECTION>" "input_fps_toggle_btn" "\"2\""
+set "<NO_SECTION>" "input_hold_fast_forward_axis" "\"+5\""
+set "<NO_SECTION>" "input_joypad_driver" "\"sdl2\""
+set "<NO_SECTION>" "input_load_state_btn" "\"9\""
+set "<NO_SECTION>" "input_menu_toggle_btn" "\"5\""
+# input bind on keyboard
+# unset "gun" button
+set "<NO_SECTION>" "input_player1_gun_offscreen_shot_mbtn" "\"nul\""
+set "<NO_SECTION>" "input_player1_gun_select" "\"nul\""
+set "<NO_SECTION>" "input_player1_gun_select_mbtn" "\"nul\""
+set "<NO_SECTION>" "input_player1_gun_start" "\"nul\""
+set "<NO_SECTION>" "input_player1_gun_start_mbtn" "\"nul\""
+set "<NO_SECTION>" "input_player1_gun_trigger_mbtn" "\"nul\""
+set "<NO_SECTION>" "input_player1_l2" "\"num1\""
+set "<NO_SECTION>" "input_player1_r2" "\"num2\""
+set "<NO_SECTION>" "input_player1_select" "\"shift\""
+set "<NO_SECTION>" "input_player1_start" "\"rshift\""
+set "<NO_SECTION>" "input_reset" "\"nul\""
+set "<NO_SECTION>" "input_rewind" "\"nul\""
+set "<NO_SECTION>" "input_rewind_axis" "\"+4\""
+set "<NO_SECTION>" "input_runahead_toggle_btn" "\"3\""
+set "<NO_SECTION>" "input_save_state_btn" "\"10\""
+set "<NO_SECTION>" "input_toggle_fast_forward" "\"nul\""
+set "<NO_SECTION>" "input_turbo_default_button" "\"0\""
+set "<NO_SECTION>" "input_volume_up" "\"plus\""
+
+set "<NO_SECTION>" "libretro_log_level" "\"0\""
+set "<NO_SECTION>" "log_to_file" "\"true\""
+set "<NO_SECTION>" "log_verbosity" "\"true\""
+
+set "<NO_SECTION>" "menu_battery_level_enable" "\"false\""
+set "<NO_SECTION>" "menu_core_enable" "\"false\""
+set "<NO_SECTION>" "menu_disable_info_button" "\"true\""
+set "<NO_SECTION>" "menu_driver" "\"xmb\""
+set "<NO_SECTION>" "menu_insert_disk_resume" "\"false\""
+set "<NO_SECTION>" "menu_left_thumbnails" "\"2\""
+set "<NO_SECTION>" "menu_show_core_updater" "\"true\""
+set "<NO_SECTION>" "menu_show_overlays" "\"false\""
+# use nintendo style on menu
+set "<NO_SECTION>" "menu_swap_ok_cancel_buttons" "\"false\""
+
+set "<NO_SECTION>" "microphone_driver" "\"sdl2\""
+set "<NO_SECTION>" "netplay_nickname" "\"{{ .chezmoi.username }}\""
+set "<NO_SECTION>" "network_on_demand_thumbnails" "\"true\""
+set "<NO_SECTION>" "pause_on_disconnect" "\"true\""
+
+set "<NO_SECTION>" "quick_menu_show_restart_content" "\"false\""
+set "<NO_SECTION>" "quick_menu_show_save_content_dir_overrides" "\"false\""
+set "<NO_SECTION>" "quick_menu_show_save_game_overrides" "\"false\""
+set "<NO_SECTION>" "quick_menu_show_start_recording" "\"false\""
+set "<NO_SECTION>" "quick_menu_show_start_streaming" "\"false\""
+set "<NO_SECTION>" "quick_menu_show_take_screenshot" "\"false\""
+
+set "<NO_SECTION>" "quit_on_close_content" "\"2\""
+
+set "<NO_SECTION>" "savestate_auto_index" "\"true\""
+set "<NO_SECTION>" "savestate_auto_load" "\"true\""
+set "<NO_SECTION>" "savestate_auto_save" "\"true\""
+set "<NO_SECTION>" "savestate_max_keep" "\"10\""
+set "<NO_SECTION>" "savestate_thumbnail_enable" "\"false\""
+
+set "<NO_SECTION>" "screenshot_directory" "\"default\""
+set "<NO_SECTION>" "screenshots_in_content_dir" "\"true\""
+
+set "<NO_SECTION>" "show_hidden_files" "\"true\""
+set "<NO_SECTION>" "state_slot" "\"10\""
+set "<NO_SECTION>" "use_last_start_directory" "\"true\""
+
+set "<NO_SECTION>" "video_allow_rotate" "\"false\""
+set "<NO_SECTION>" "video_driver" "\"vulkan\""
+set "<NO_SECTION>" "video_fullscreen" "\"true\""
+set "<NO_SECTION>" "video_shader_enable" "\"true\""
+set "<NO_SECTION>" "video_shader_remember_last_dir" "\"true\""
+set "<NO_SECTION>" "video_threaded" "\"true\""
+set "<NO_SECTION>" "video_vsync" "\"false\""
+set "<NO_SECTION>" "xmb_layout" "\"1\""
+
+# vim: filetype=sh
