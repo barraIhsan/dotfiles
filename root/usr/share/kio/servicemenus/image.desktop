@@ -1,0 +1,21 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=image/*
+Actions=a_rename;b_webp;c_png
+X-KDE-Submenu=Image
+
+[Desktop Action a_rename]
+Name=Rename to MD5
+Icon=edit
+Exec=/home/barra/.local/bin/image rename %F
+
+[Desktop Action b_webp]
+Name=Convert to WebP
+Icon=autocorrection
+Exec=/home/barra/.local/bin/image webp %F
+
+[Desktop Action c_png]
+Name=Convert to PNG
+Icon=autocorrection
+Exec=/home/barra/.local/bin/image png %F
