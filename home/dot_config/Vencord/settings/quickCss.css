@@ -1,10 +1,11 @@
 /* @import url("https://nspc911.github.io/themes/vencord/RefreshedSeamlessChatBar.theme.css"); */
 /* @import url(https://davart154.github.io/Themes/Snippets/Chat%20Bar%20Context%20Menu/ChatContextMenuSource.css); */
-@import url('https://raw.githubusercontent.com/Krammeth/css-snippets/refs/heads/main/CompactButtons.css');
+@import url("https://raw.githubusercontent.com/Krammeth/css-snippets/refs/heads/main/CompactButtons.css");
 
 /* Hide gift and sticker on chat */
+div[role="button"][aria-label="Give a Gift"],
 div[role="button"][aria-label="Send a gift"],
-div:has(>div[role="button"][aria-label="Open sticker picker"]) {
+span:has(>div[role="button"][class^="bannerButton"][aria-label="Gift"]) {
   display: none !important;
 }
 
@@ -73,23 +74,31 @@ Sidebar cat
 https://discord.com/channels/1015060230222131221/1028106818368589824/1420603427246833775
 */
 .user-profile-sidebar::after {
-    /* Discord's color setup */
-    --profile-gradient-start:  color-mix(in oklab, var(--profile-gradient-overlay-color) 100%, var(--profile-gradient-primary-color));
-    --profile-gradient-end:  color-mix(in oklab, var(--profile-gradient-overlay-color) 100%, var(--profile-gradient-secondary-color));
-    /* The cat */
-    content: 
-   "  ╱|、   \a"
- "  (˚ˎ 。7  \a"
-  "  |、˜〵\  \a"
-"    じしˍ,)ノ";
+  /* Discord's color setup */
+  --profile-gradient-start: color-mix(
+    in oklab,
+    var(--profile-gradient-overlay-color) 100%,
+    var(--profile-gradient-primary-color)
+  );
+  --profile-gradient-end: color-mix(
+    in oklab,
+    var(--profile-gradient-overlay-color) 100%,
+    var(--profile-gradient-secondary-color)
+  );
+  /* The cat */
+  content: "  ╱|、   \a" "  (˚ˎ 。7  \a" "  |、˜〵\  \a" "    じしˍ,)ノ";
 
-    white-space: pre;
-    inset: 0;
-    padding: 20px;
-    color: white;
-    /* Also discords */
-    background: linear-gradient(var(--profile-gradient-start), var(--profile-gradient-start) var(--custom-user-profile-banner-height), var(--profile-gradient-end));
-    text-align: center;
-    font-size: 150%;
+  white-space: pre;
+  inset: 0;
+  padding: 20px;
+  color: white;
+  /* Also discords */
+  background: linear-gradient(
+    var(--profile-gradient-start),
+    var(--profile-gradient-start) var(--custom-user-profile-banner-height),
+    var(--profile-gradient-end)
+  );
+  text-align: center;
+  font-size: 150%;
 }
 /* End sidebar cat */
