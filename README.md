@@ -5,6 +5,9 @@ oh what wm/de do I use? I'm a simple man, so KDE Plasma. I'm not really accustom
 
 ## Setup
 
+> [!NOTE]
+> This dotfiles repo is highly personalized for my own setup, so you may not want to apply everything as-is. I suggest you to browse through them and cherry-pick whatever fits your needs
+
 1. Install [chezmoi](https://www.chezmoi.io/install/), [chezmoi_modify_manager](https://vorpalblade.github.io/chezmoi_modify_manager/installation.html#:~:text=Do,these) and [jq](https://jqlang.org/download/) if you haven't installed them yet
 2. Clone it with `chezmoi init https://github.com/barraIhsan/dotfiles`
 3. Apply it with `chezmoi apply`, you can also see what'll change by using `chezmoi diff` too
