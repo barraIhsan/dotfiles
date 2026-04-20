@@ -2,10 +2,11 @@
 /* @import url(https://davart154.github.io/Themes/Snippets/Chat%20Bar%20Context%20Menu/ChatContextMenuSource.css); */
 @import url("https://raw.githubusercontent.com/Krammeth/css-snippets/refs/heads/main/CompactButtons.css");
 
-/* Hide gift and sticker on chat */
+/* Hide gift buttons */
 div[role="button"][aria-label="Give a Gift"],
 div[role="button"][aria-label="Send a gift"],
-span:has(>div[role="button"][class^="bannerButton"][aria-label="Gift"]) {
+span:has(>div[role="button"][class^="bannerButton"][aria-label="Gift"]),
+span:has(>button[role="button"][aria-label="Gift"]) {
   display: none !important;
 }
 
