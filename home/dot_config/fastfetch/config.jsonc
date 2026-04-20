@@ -30,22 +30,22 @@
     {
       "type": "os",
       "key": "os",
-      "format": "{2}"
+      "format": "{name}"
     },
     {
       "type": "kernel",
       "key": "kernel",
-      "format": "{1} {2}"
+      "format": "{sysname} {release}"
     },
     {
       "type": "packages",
       "key": "pkgs",
-      "format": "{2} (pacman) {44} (flatpak)"
+      "format": "{pacman} (pacman) {flatpak-all} (flatpak)"
     },
     {
       "type": "memory",
       "key": "memory",
-      "format": "{1} / {2}"
+      "format": "{used} / {total} ({percentage})"
     }
   ]
 }
