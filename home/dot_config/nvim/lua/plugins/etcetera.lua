@@ -59,6 +59,4 @@ return {
   },
   -- wakatime
   { "wakatime/vim-wakatime", lazy = false },
-  -- activitywatcher
-  { "ActivityWatch/aw-watcher-vim", lazy = false },
 }
