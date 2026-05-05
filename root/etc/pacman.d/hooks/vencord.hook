@@ -8,4 +8,4 @@ Target = discord
 Description = Re-patch vencord after discord install/upgrade
 When = PostTransaction
 Depends = vencord-installer-cli-bin
-Exec = /usr/bin/vencordinstallercli -repair -location /opt/discord
+Exec = /usr/bin/env bash -c '/usr/bin/vencordinstallercli -repair -location /home/$(logname)/.config/discord/$(ls /home/$(logname)/.config/discord/ | grep "app-" | sort -V | tail -1)'
