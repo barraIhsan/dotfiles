@@ -8,14 +8,14 @@ X-KDE-Submenu=Image
 [Desktop Action a_rename]
 Name=Rename to MD5
 Icon=edit
-Exec=/home/barra/.local/bin/image rename %F
+Exec=/usr/local/bin/imgconvert rename %F
 
 [Desktop Action b_webp]
 Name=Convert to WebP
 Icon=autocorrection
-Exec=/home/barra/.local/bin/image webp %F
+Exec=/usr/local/bin/imgconvert webp %F
 
 [Desktop Action c_png]
 Name=Convert to PNG
 Icon=autocorrection
-Exec=/home/barra/.local/bin/image png %F
+Exec=/usr/local/bin/imgconvert png %F
