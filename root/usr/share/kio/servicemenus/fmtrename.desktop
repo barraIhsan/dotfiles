@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Service
+MimeType=image/*;video/*
+Actions=md5;
+X-KDE-Submenu=Format Rename
+
+[Desktop Action md5]
+Name=MD5 hash
+Icon=edit
+Exec=/usr/local/bin/fmtrename md5 %F

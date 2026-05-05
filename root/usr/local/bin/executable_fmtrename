@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+mode=$1
+shift
+files=("$@")
+
+case "$mode" in
+md5)
+  for f in "${files[@]}"; do
+    ext="${f##*.}"
+    ext=$(echo "$ext" | tr '[:upper:]' '[:lower:]') # make sure no uppercase file extension
+    hash=$(md5sum "$f" | cut -d " " -f1)
+    mv "$f" "$hash.$ext"
+  done
+  ;;
+esac

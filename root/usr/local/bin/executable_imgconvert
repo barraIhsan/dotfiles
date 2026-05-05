@@ -3,23 +3,6 @@ mode=$1
 shift
 files=("$@")
 
-case "$mode" in
-rename)
-  for f in "${files[@]}"; do
-    ext="${f##*.}"
-    ext=$(echo "$ext" | tr '[:upper:]' '[:lower:]') # make sure no uppercase file extension
-    hash=$(md5sum "$f" | cut -d " " -f1)
-    mv "$f" "$hash.$ext"
-  done
-  ;;
-webp)
-  for f in "${files[@]}"; do
-    magick "$f" "${f%.*}.webp"
-  done
-  ;;
-png)
-  for f in "${files[@]}"; do
-    magick "$f" "${f%.*}.png"
-  done
-  ;;
-esac
+for f in "${files[@]}"; do
+  magick "$f" "${f%.*}.$mode"
+done
