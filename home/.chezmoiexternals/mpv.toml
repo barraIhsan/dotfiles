@@ -39,7 +39,7 @@
 # ani-skip, skip anime opening and ending
 [".config/mpv/scripts/ani-skip.lua"]
   type = "file"
-  url = "https://raw.githubusercontent.com/synacktraa/ani-skip/master/skip.lua"
+  url = "https://raw.githubusercontent.com/synacktraa/ani-skip/refs/heads/master/integrations/mpv.lua"
   refreshPeriod = "168h"
 # videoclip
 [".config/mpv/scripts/videoclip"]
