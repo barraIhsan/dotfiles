@@ -58,5 +58,5 @@ return {
     event = "VeryLazy",
   },
   -- wakatime
-  { "wakatime/vim-wakatime", lazy = false },
+  { "wakatime/vim-wakatime", lazy = false, opts = { status_bar_enabled = false } },
 }
